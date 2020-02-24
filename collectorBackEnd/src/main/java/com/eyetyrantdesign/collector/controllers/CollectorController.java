@@ -43,5 +43,4 @@ public class CollectorController {
   public DieCast addItem(@RequestBody DieCast newDieCast){
     return dieCastRepository.save(newDieCast);
   }
-
 }
