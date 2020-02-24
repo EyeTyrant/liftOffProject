@@ -1,1 +1,7 @@
-<p class="text-primary">display works!</p>
+<h2>Collection List</h2>
+<ul *ngFor="let item of collection">
+  <li>
+    {{ item.id }} - {{ item.year }} - {{ item.name }} - {{ item.brand }} -
+    {{ item.mfr }}
+  </li>
+</ul>

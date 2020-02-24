@@ -7,12 +7,4 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "Collector";
-
-  rectangle = {
-    length: 5,
-    width: 6,
-    area: function() {
-      return this.length * this.width;
-    }
-  };
 }

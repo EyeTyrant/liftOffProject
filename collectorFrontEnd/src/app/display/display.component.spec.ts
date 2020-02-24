@@ -1,3 +1,4 @@
+Learn more or give us feedback
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DisplayComponent } from './display.component';
@@ -8,9 +9,9 @@ describe('DisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DisplayComponent ]
+      declarations: [DisplayComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
