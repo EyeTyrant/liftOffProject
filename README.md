@@ -1,5 +1,5 @@
 # LiftOffProject
-LiftOff Project: Angular, Bootstrap front-end. Java Spring Boot, Hibernate, mySQL back-end.
+LaunchCode LiftOff Project: Angular, Bootstrap front-end. Java Spring Boot, Hibernate, mySQL back-end.
 
 ## Collection Catalog
 
