@@ -15,4 +15,4 @@ Collection Catalog utilizes an Angular front-end for user interaction and client
 
 An initial wireframe example of a single page version created with Adobe Illustrator is displayed below and other examples considered can be found at https://github.com/EyeTyrant/liftOffProject/tree/master/wireframes
 
-![Single page with sidebar](https://github.com/EyeTyrant/liftOffProject/blob/master/wireframes/collectorSingleSideBar.pdf)
+![Single page with sidebar](https://github.com/EyeTyrant/liftOffProject/blob/dieCastInputForm/wireframes/singlePageSideBar.png)
