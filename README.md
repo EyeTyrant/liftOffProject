@@ -7,7 +7,7 @@ Collection Catalog is a web app allowing users to store and organize thier colle
 
 Users will be able to input various aspects of thier collection to be saved in a database. Details can be retrieved with a search and displayed in a table formatted list where items can also be sorted, updated, and deleted.
 
-Additional features presently considered include additional collection types (e.g., comic books, coins, stamps, albums), allowing users to add custom inputs, user log in and out, editable user profiles, and dispaying lists of links related to the collection type being viewed.
+Additional features presently considered include additional collection types (e.g., comic books, coins, stamps, albums), allowing users to add custom inputs and add images, user log in and out, editable user profiles, and dispaying lists of links related to the collection type being viewed.
 
 I hope to deploy this project to the web as soon as the MVP is ready and before implementing additional features.
 
