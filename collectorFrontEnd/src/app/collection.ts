@@ -1,7 +1,7 @@
-export interface DieCastCollection {
+export interface DieCast {
   id: number;
-  releaseYear: number;
+  year: number;
   name: string;
   brand: string;
-  manufacturer: string;
+  mfr: string;
 }

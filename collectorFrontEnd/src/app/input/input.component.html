@@ -1,11 +1,11 @@
 <hr class="mb-5 mt-5" />
 <div class="container-fluid">
   <h2>Add An Item</h2>
-  <form [formGroup]="dieCastInputForm">
+  <form [formGroup]="dieCastInputForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label
         >Release Year
-        <input formControlName="releaseYear" type="text" class="form-control" />
+        <input formControlName="year" type="text" class="form-control" />
       </label>
     </div>
 
@@ -26,11 +26,7 @@
     <div class="form-group">
       <label
         >Manufacturer
-        <input
-          formControlName="manufacturer"
-          type="text"
-          class="form-control"
-        />
+        <input formControlName="mfr" type="text" class="form-control" />
       </label>
     </div>
     <button class="btn btn-primary" type="submit">Add</button>

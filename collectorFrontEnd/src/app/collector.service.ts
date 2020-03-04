@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { DieCastCollection } from "./collection";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { DieCast } from "./collection";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -11,7 +11,12 @@ export class CollectorService {
 
   constructor(private http: HttpClient) {}
 
-  getCollection(): Observable<DieCastCollection[]> {
-    return this.http.get<DieCastCollection[]>(this.collectorListUrl);
+  getCollection(): Observable<DieCast[]> {
+    return this.http.get<DieCast[]>(this.collectorListUrl);
+  }
+
+  add(dieCast: any) {
+    console.log(dieCast);
+    return this.http.post(this.collectorListUrl, dieCast);
   }
 }
