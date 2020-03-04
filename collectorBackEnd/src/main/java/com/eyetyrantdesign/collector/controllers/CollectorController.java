@@ -38,7 +38,7 @@ public class CollectorController {
     return dieCastRepository.findById(id);
   }
 
-  @PostMapping("add")
+  @PostMapping("list")
 //  @CrossOrigin(origins = "http://localhost:4200")
   public DieCast addItem(@RequestBody DieCast newDieCast){
     return dieCastRepository.save(newDieCast);
