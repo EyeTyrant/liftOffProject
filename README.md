@@ -13,6 +13,6 @@ I hope to deploy this project to the web as soon as the MVP is ready and before 
 
 Collection Catalog utilizes an Angular front-end for user interaction and client side validation. Bootstrap is employed to manage CSS. Some custom CSS is expected. Java Spring Boot will implement Hibernate to communicate with a mySQL database. VSCode, IntilliJ, and mySQL Workbench are being used to create this project. For this project I am also using Git for version control and Trello for progress tracking.
 
-An initial wireframe example of a single page version created with Adobe Illustrator is displayed below and other examples considered can be found at https://github.com/EyeTyrant/liftOffProject/tree/master/wireframes
+An initial wireframe example of a single page version created with Adobe Illustrator is displayed below and other examples considered can be found [here](https://github.com/EyeTyrant/liftOffProject/tree/master/wireframes)
 
 ![Single page with sidebar](https://github.com/EyeTyrant/liftOffProject/blob/master/wireframes/collectorSingleSideBar.pdf)
