@@ -33,6 +33,7 @@ export class InputComponent implements OnInit {
     this.collectorService
       .add(this.dieCastInputForm.value)
       .subscribe(response => console.log("Success", response));
+    this.dieCastInputForm.reset();
   }
 
   // added to constructor parameters and replaced by formBuilder

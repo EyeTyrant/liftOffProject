@@ -1,0 +1,12 @@
+.table-head {
+  background-color: #ff5100;
+}
+
+.table-body {
+  background-color: #ff5e00;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #ff7300;
+}
