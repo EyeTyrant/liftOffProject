@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { CollectorService } from "../collector.service";
 import { DieCast } from "../collection";
 import { Observable } from "rxjs";
+import { DisplayComponent } from "../display/display.component";
 
 @Component({
   selector: "app-input",
@@ -30,10 +31,13 @@ export class InputComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.dieCastInputForm.value);
-    this.collectorService
-      .add(this.dieCastInputForm.value)
-      .subscribe(response => console.log("Success", response));
-    this.dieCastInputForm.reset();
+    if (this.dieCastInputForm.valid) {
+      this.collectorService
+        .add(this.dieCastInputForm.value)
+        .subscribe(response => console.log("Success", response));
+      this.dieCastInputForm.reset();
+      location.reload();
+    }
   }
 
   // added to constructor parameters and replaced by formBuilder

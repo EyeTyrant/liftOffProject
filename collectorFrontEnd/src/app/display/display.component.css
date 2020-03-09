@@ -10,3 +10,18 @@
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #ff7300;
 }
+.table-hover tbody tr:hover td,
+.table-hover tbody tr:hover th {
+  color: #0051ff;
+  background-color: #f8cb04;
+  /* font-weight: 600; */
+}
+
+.btn-delete {
+  background-color: #ff5100;
+  /* font-weight: bold; */
+}
+.btn-delete:hover {
+  color: #f8cb04 !important;
+  background-color: #ff5100;
+}

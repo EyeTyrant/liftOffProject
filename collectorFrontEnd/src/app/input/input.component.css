@@ -1,3 +1,8 @@
 .btn-add {
   background-color: #ff5100;
+  /* font-weight: bold; */
+}
+.btn-add:hover {
+  color: #0051ff !important;
+  background-color: #f8cb04;
 }

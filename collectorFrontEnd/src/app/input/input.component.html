@@ -1,7 +1,7 @@
 <hr class="mb-5 mt-5" />
 <div class="container-fluid">
   <h2>Add An Item</h2>
-  <form [formGroup]="dieCastInputForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="dieCastInputForm" (ngSubmit)="onSubmit(dieCastInputForm)">
     <div class="form-group">
       <label
         >Release Year

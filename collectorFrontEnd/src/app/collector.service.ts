@@ -19,4 +19,7 @@ export class CollectorService {
     console.log(dieCast);
     return this.http.post(this.collectorListUrl, dieCast);
   }
+  delete(dieCast: any) {
+    return this.http.delete(`this.collectorListUrl/{id}`);
+  }
 }

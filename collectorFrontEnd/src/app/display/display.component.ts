@@ -16,4 +16,11 @@ export class DisplayComponent implements OnInit {
       .getCollection()
       .subscribe((data: any[]) => (this.collection = data));
   }
+
+  onDelete(id: number) {
+    this.collectorService
+      .delete(id)
+      .subscribe(response => console.log("Yaay", response));
+    location.reload();
+  }
 }
