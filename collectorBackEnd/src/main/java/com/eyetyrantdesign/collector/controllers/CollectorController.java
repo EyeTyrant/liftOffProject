@@ -43,8 +43,8 @@ public class CollectorController {
   }
 
   @DeleteMapping("list/{id}")
+//  @CrossOrigin(origins = "http://localhost:4200")
   public void deleteItemById(@PathVariable("id") Integer id) {
    dieCastRepository.deleteById(id);
-
   }
 }
