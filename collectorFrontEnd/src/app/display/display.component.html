@@ -8,7 +8,7 @@
 <div class="container">
   <table class="table table-striped table-hover table-sm">
     <thead>
-      <tr class="text-white table-head">
+      <tr class="table-head">
         <!-- maybe eliminate id from view -->
         <th scope="col">ID</th>
         <th scope="col">Release Year</th>
@@ -18,7 +18,7 @@
         <th scope="col">Delete</th>
       </tr>
     </thead>
-    <tbody class="text-white table-body">
+    <tbody class="table-body">
       <tr *ngFor="let item of collection">
         <!-- maybe eliminate id from view -->
         <th scope="row">{{ item.id }}</th>
@@ -29,7 +29,7 @@
         <td>
           <button
             class="btn btn-delete btn-sm text-white"
-            (click)="onDelete(id)"
+            (click)="onDelete(item)"
           >
             X
           </button>

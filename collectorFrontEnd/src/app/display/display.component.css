@@ -1,27 +1,33 @@
 .table-head {
-  background-color: #ff5100;
+  color: #ff5100;
+  /* background-color: #ff5100; */
 }
 
 .table-body {
-  background-color: #ff5e00;
+  /* background-color: #ff5e00; */
 }
 
-.table-striped > tbody > tr:nth-child(odd) > td,
+/* .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #ff7300;
-}
+} */
+
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
   color: #0051ff;
-  background-color: #f8cb04;
+  /* background-color: #f8cb04; */
   /* font-weight: 600; */
 }
 
 .btn-delete {
   background-color: #ff5100;
-  /* font-weight: bold; */
+  font-weight: bold;
 }
+
 .btn-delete:hover {
-  color: #f8cb04 !important;
-  background-color: #ff5100;
+  color: #0051ff !important;
+  border-color: #0051ff;
+  font-weight: bold;
+  /* color: #f8cb04 !important; */
+  background-color: #f8cb04;
 }

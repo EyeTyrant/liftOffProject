@@ -33,7 +33,7 @@ export class InputComponent implements OnInit {
     console.log(this.dieCastInputForm.value);
     if (this.dieCastInputForm.valid) {
       this.collectorService
-        .add(this.dieCastInputForm.value)
+        .addItem(this.dieCastInputForm.value)
         .subscribe(response => console.log("Success", response));
       this.dieCastInputForm.reset();
       location.reload();

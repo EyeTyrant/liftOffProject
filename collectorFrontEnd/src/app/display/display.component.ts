@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { CollectorService } from "../collector.service";
+import { isNgTemplate, identifierModuleUrl } from "@angular/compiler";
+import { DieCast } from "../collection";
+import { getLocaleTimeFormat } from "@angular/common";
+import { Subscriber } from "rxjs";
 
 @Component({
   selector: "app-display",
@@ -15,12 +19,13 @@ export class DisplayComponent implements OnInit {
     this.collectorService
       .getCollection()
       .subscribe((data: any[]) => (this.collection = data));
+    console.log(Response);
   }
 
-  onDelete(id: number) {
-    this.collectorService
-      .delete(id)
-      .subscribe(response => console.log("Yaay", response));
+  onDelete(item: string): void {
+    this.collectorService.deleteItem(item["id"]).subscribe();
     location.reload();
   }
 }
+
+// this.collectorService.getItem(id).subscribe();

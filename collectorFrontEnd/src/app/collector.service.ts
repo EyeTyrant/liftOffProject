@@ -15,11 +15,16 @@ export class CollectorService {
     return this.http.get<DieCast[]>(this.collectorListUrl);
   }
 
-  add(dieCast: any) {
-    console.log(dieCast);
-    return this.http.post(this.collectorListUrl, dieCast);
+  getItem(id: string): Observable<DieCast> {
+    return this.http.get<DieCast>(this.collectorListUrl + `/${id}`);
   }
-  delete(dieCast: any) {
-    return this.http.delete(`this.collectorListUrl/{id}`);
+
+  addItem(dieCast: DieCast): Observable<DieCast> {
+    console.log(dieCast);
+    return this.http.post<DieCast>(this.collectorListUrl, dieCast);
+  }
+  deleteItem(id: number) {
+    const url = `${this.collectorListUrl}/${id}`;
+    return this.http.delete<DieCast>(url);
   }
 }
