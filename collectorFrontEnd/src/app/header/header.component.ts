@@ -6,6 +6,9 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
+  // TODO: make this a function to change title to match chosen collection
+  title = "Die Cast";
+
   constructor() {}
 
   ngOnInit() {}
