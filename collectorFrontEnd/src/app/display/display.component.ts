@@ -19,12 +19,14 @@ export class DisplayComponent implements OnInit {
     this.collectorService
       .getCollection()
       .subscribe((data: any[]) => (this.collection = data));
-    console.log(Response);
+    // console.log(Response);
   }
 
   onDelete(item: string): void {
-    this.collectorService.deleteItem(item["id"]).subscribe();
-    location.reload();
+    this.collectorService
+      .deleteItem(item["id"])
+      .subscribe(_response => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page.
+    // location.reload();
   }
 }
 

@@ -30,7 +30,7 @@ export class InputComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.dieCastInputForm.value);
+    // console.log(this.dieCastInputForm.value);
     if (this.dieCastInputForm.valid) {
       this.collectorService
         .addItem(this.dieCastInputForm.value)

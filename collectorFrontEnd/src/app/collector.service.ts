@@ -20,7 +20,7 @@ export class CollectorService {
   }
 
   addItem(dieCast: DieCast): Observable<DieCast> {
-    console.log(dieCast);
+    // console.log(dieCast);
     return this.http.post<DieCast>(this.collectorListUrl, dieCast);
   }
   deleteItem(id: number) {
