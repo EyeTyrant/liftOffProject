@@ -27,16 +27,19 @@ export class MatDisplayComponent implements OnInit {
   logData(row) {
     console.log(row);
   }
+  public doFilter = (value: string) => {
+    this.dataSource.filter = value.trim().toLocaleLowerCase();
+  };
 }
 
-export class MyDataSource extends DataSource<DieCast> {
-  constructor(private collectorService: CollectorService) {
-    super();
-  }
-  connect(): Observable<DieCast[]> {
-    return this.collectorService.getAllFromServer();
-  }
-  disconnect() {}
+// export class MyDataSource extends DataSource<DieCast> {
+//   constructor(private collectorService: CollectorService) {
+//     super();
+//   }
+//   connect(): Observable<DieCast[]> {
+//     return this.collectorService.getAllFromServer();
+//   }
+//   disconnect() {}
 
-  filter() {}
-}
+//   filter() {}
+// }
