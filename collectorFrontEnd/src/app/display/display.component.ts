@@ -1,9 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { CollectorService } from "../collector.service";
-import { isNgTemplate, identifierModuleUrl } from "@angular/compiler";
-import { DieCast } from "../collection";
-import { getLocaleTimeFormat } from "@angular/common";
-import { Subscriber } from "rxjs";
 
 @Component({
   selector: "app-display",
@@ -16,8 +12,14 @@ export class DisplayComponent implements OnInit {
   constructor(private collectorService: CollectorService) {}
 
   ngOnInit() {
+    this.collectorService.refrestOnSubmit.subscribe(() => {
+      this.getCollection();
+    });
+    this.getCollection();
+  }
+  private getCollection() {
     this.collectorService
-      .getCollection()
+      .getAllFromServer()
       .subscribe((data: any[]) => (this.collection = data));
     // console.log(Response);
   }
@@ -25,9 +27,6 @@ export class DisplayComponent implements OnInit {
   onDelete(item: string): void {
     this.collectorService
       .deleteItem(item["id"])
-      .subscribe(_response => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page.
-    // location.reload();
+      .subscribe(_response => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page as with location.reload();.
   }
 }
-
-// this.collectorService.getItem(id).subscribe();
