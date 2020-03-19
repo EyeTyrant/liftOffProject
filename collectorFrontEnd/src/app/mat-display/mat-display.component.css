@@ -1,6 +1,7 @@
 .table-head {
   color: #ff5100;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
   /* background-color: #ff5100; */
 }
 .table-body {
@@ -22,6 +23,7 @@
 .btn-delete {
   background-color: #ff5100;
   font-weight: bold;
+  border-radius: 50%;
 }
 
 .btn-delete:hover {
@@ -31,3 +33,13 @@
   /* color: #f8cb04 !important; */
   background-color: #f8cb04;
 }
+
+mat-header-cell,
+mat-cell {
+  justify-content: center;
+  width: fit-content;
+}
+/* .mat-column-Actions {
+  flex: 0 0 100px !important;
+  white-space: unset !important;
+} */
