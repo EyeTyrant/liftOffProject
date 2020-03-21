@@ -4,6 +4,7 @@
   font-weight: bold;
   /* background-color: #ff5100; */
 }
+
 .table-body {
   /* background-color: #ff5e00; */
 }
@@ -39,6 +40,39 @@ mat-cell {
   justify-content: center;
   width: fit-content;
 }
+
+.mat-btn-delete,
+.mat-btn-edit {
+  color: #ff5100;
+}
+
+.mat-btn-delete:hover,
+.mat-btn-edit:hover {
+  color: #0051ff !important;
+}
+
+.mat-row:hover {
+  background-color: #e5edff;
+}
+
+
+
+/*change color of underline*/
+::ng-deep.mat-form-field-underline {
+  background-color: #ff5100 !important;
+}
+
+/*change color of label*/
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #0051ff !important;
+}
+
+/*change color of underline when focused*/
+::ng-deep .mat-form-field-ripple {
+  background-color: #0051ff !important;
+  ;
+}
+
 /* .mat-column-Actions {
   flex: 0 0 100px !important;
   white-space: unset !important;

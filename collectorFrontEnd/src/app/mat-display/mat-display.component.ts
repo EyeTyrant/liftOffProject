@@ -15,7 +15,15 @@ export class MatDisplayComponent implements OnInit {
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   // collection: any[];
   constructor(private collectorService: CollectorService) {
-    this.displayedColumns = ["id", "year", "name", "brand", "mfr", "delete"];
+    this.displayedColumns = [
+      "id",
+      "year",
+      "name",
+      "brand",
+      "mfr",
+      "delete",
+      "edit"
+    ];
   }
 
   // ngOnInit() {

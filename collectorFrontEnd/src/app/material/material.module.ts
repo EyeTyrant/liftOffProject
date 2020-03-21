@@ -4,7 +4,8 @@ import {
   MatTableModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSortModule
+  MatSortModule,
+  MatIconModule
 } from "@angular/material";
 
 const material = [
@@ -12,7 +13,8 @@ const material = [
   MatTableModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSortModule
+  MatSortModule,
+  MatIconModule
 ];
 
 @NgModule({
