@@ -1,3 +1,4 @@
+/* Bootstrap Table */
 .table-head {
   color: #ff5100;
   font-size: 1.1rem;
@@ -35,6 +36,9 @@
   background-color: #f8cb04;
 }
 
+
+
+/* Angular Material Table */
 mat-header-cell,
 mat-cell {
   justify-content: center;
@@ -53,12 +57,18 @@ mat-cell {
 
 .mat-row:hover {
   background-color: #e5edff;
+  font-weight: bold;
+  color: blue !important;
 }
 
 
+/*change color of placeholder*/
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: #ff5100;
+}
 
 /*change color of underline*/
-::ng-deep.mat-form-field-underline {
+::ng-deep .mat-form-field-underline {
   background-color: #ff5100 !important;
 }
 
