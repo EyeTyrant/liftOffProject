@@ -1,12 +1,18 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { CollectorService } from "../collector.service";
 import { DieCast } from "../collection";
-import { MatTableDataSource, MatSort } from "@angular/material";
+import {
+  MatTableDataSource,
+  MatSort,
+  MatDialog,
+  MatDialogConfig,
+} from "@angular/material";
+import { InputFormComponent } from "../input-form/input-form.component";
 
 @Component({
   selector: "app-mat-display",
   templateUrl: "./mat-display.component.html",
-  styleUrls: ["./mat-display.component.css"]
+  styleUrls: ["./mat-display.component.css"],
 })
 export class MatDisplayComponent implements OnInit {
   dataSource: MatTableDataSource<DieCast> = new MatTableDataSource<DieCast>();
@@ -14,15 +20,18 @@ export class MatDisplayComponent implements OnInit {
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   // collection: any[];
-  constructor(private collectorService: CollectorService) {
+  constructor(
+    private collectorService: CollectorService,
+    public dialog: MatDialog
+  ) {
     this.displayedColumns = [
       "id",
       "year",
       "name",
       "brand",
       "mfr",
+      "edit",
       "delete",
-      "edit"
     ];
   }
 
@@ -46,7 +55,7 @@ export class MatDisplayComponent implements OnInit {
     // console.log(Response);
   }
 
-  logData(row) {
+  logData(row: any) {
     console.log(row);
   }
   public filter = (value: string) => {
@@ -56,7 +65,18 @@ export class MatDisplayComponent implements OnInit {
   onDelete(item: string): void {
     this.collectorService
       .deleteItem(item["id"])
-      .subscribe(_response => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page as with location.reload();.
+      .subscribe((_response) => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page as with location.reload();.
+  }
+
+  onEdit(id: string) {
+    this.dialog.open(InputFormComponent);
+    this.collectorService.getItem(id);
+    this.populateForm(id);
+    console.log(id);
+  }
+
+  populateForm(row: any) {
+    this.collectorService.inputForm.setValue = row;
   }
 }
 

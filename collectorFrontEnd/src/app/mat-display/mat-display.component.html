@@ -40,26 +40,26 @@
       <mat-cell *matCellDef="let item">{{ item.mfr }}</mat-cell>
     </ng-container>
 
+    <ng-container matColumnDef="edit">
+      <mat-header-cell class="table-head" *matHeaderCellDef>Edit</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button class="mat-btn-icon">
+          <mat-icon (click)="onEdit(row)">create</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    
     <ng-container matColumnDef="delete">
       <mat-header-cell class="table-head" *matHeaderCellDef>Delete</mat-header-cell>
       <mat-cell *matCellDef="let item">
-        <button mat-icon-button class="mat-btn-delete">
+        <button mat-icon-button class="mat-btn-icon">
           <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
-
-    <ng-container matColumnDef="edit">
-      <mat-header-cell class="table-head" *matHeaderCellDef>Edit</mat-header-cell>
-      <mat-cell *matCellDef="let item">
-        <button mat-icon-button class="mat-btn-delete">
-          <mat-icon (click)="onDelete(item)">create</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
-
+    
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row color="accent"
+    <mat-row
       (click)="logData(row)"
       *matRowDef="let row; columns: displayedColumns">
     </mat-row>
