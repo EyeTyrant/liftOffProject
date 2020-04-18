@@ -5,24 +5,19 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { DieCast } from "./collection";
 import { Observable, Subject } from "rxjs";
 import { tap } from "rxjs/operators";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { TestBed } from "@angular/core/testing";
+import { MatDisplayComponent } from "./mat-display/mat-display.component";
 
 @Injectable({
   providedIn: "root",
 })
 export class CollectorService {
   private collectorListUrl = "http://localhost:8080/list";
-  // inputForm: FormGroup;
   private url = `${this.collectorListUrl}`;
 
   constructor(private http: HttpClient, private frmBldr: FormBuilder) {}
 
-  inputForm = this.frmBldr.group({
-    year: [""],
-    name: [""],
-    brand: [""],
-    mfr: [""],
-  });
   private _refreshOnSubmit = new Subject<void>();
 
   get refrestOnSubmit() {
@@ -33,12 +28,11 @@ export class CollectorService {
     return this.http.get<DieCast[]>(this.url);
   }
 
-  getItem(id: string): Observable<DieCast> {
+  getItem(id: number): Observable<DieCast> {
     return this.http.get<DieCast>(`${this.url}/${id}`);
   }
 
   addItem(dieCast: DieCast): Observable<DieCast> {
-    // console.log(dieCast);
     return this.http.post<DieCast>(this.url, dieCast).pipe(
       tap(() => {
         this._refreshOnSubmit.next();
@@ -46,8 +40,9 @@ export class CollectorService {
     );
   }
 
-  updateItem(id: string, dieCast: DieCast): Observable<any> {
-    return this.http.put<any>(`${this.url}/${id}`, dieCast).pipe(
+  updateItem(id: number, dieCast: DieCast): Observable<void> {
+    console.log(typeof id);
+    return this.http.patch<void>(`${this.url}/${id}`, dieCast).pipe(
       tap(() => {
         this._refreshOnSubmit.next();
       })

@@ -1,4 +1,11 @@
 <h2>Collection List</h2>
+<div class="container">
+  <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New</button>
+</div>
+<div class="container">
+  <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
+</div>
+
 
 <div class="container">
   <mat-form-field>
@@ -44,7 +51,7 @@
       <mat-header-cell class="table-head" *matHeaderCellDef>Edit</mat-header-cell>
       <mat-cell *matCellDef="let item">
         <button mat-icon-button class="mat-btn-icon">
-          <mat-icon (click)="onEdit(row)">create</mat-icon>
+          <mat-icon (click)="onEdit(item)">create</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
@@ -54,6 +61,15 @@
       <mat-cell *matCellDef="let item">
         <button mat-icon-button class="mat-btn-icon">
           <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="test">
+      <mat-header-cell class="table-head" *matHeaderCellDef>Test</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button class="mat-btn-icon">
+          <mat-icon (click)="test(item)">pool</mat-icon>
         </button>
       </mat-cell>
     </ng-container>

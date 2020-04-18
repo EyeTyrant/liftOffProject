@@ -21,18 +21,18 @@ import { MatGridListModule } from "@angular/material";
     InputComponent,
     DisplayComponent,
     MatDisplayComponent,
-    InputFormComponent
+    InputFormComponent,
   ],
-  entryComponents: [InputFormComponent],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    MatGridListModule
+    MatGridListModule,
   ],
   providers: [CollectorService],
-  bootstrap: [AppComponent]
+  entryComponents: [InputFormComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,37 +6,24 @@
   /* background-color: #ff5100; */
 }
 
-.table-body {
-  /* background-color: #ff5e00; */
+/* color of Add New button */
+.btn-add {
+  background-color: #ff5100;
+  /* font-weight: bold; */
 }
 
-/* .table-striped > tbody > tr:nth-child(odd) > td,
-.table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #ff7300;
-} */
+.btn-add:hover {
+  color: #0051ff !important;
+  background-color: #f8cb04;
+}
 
+/* table row background color on hover */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
   color: #0051ff;
   /* background-color: #f8cb04; */
   /* font-weight: 600; */
 }
-
-.btn-delete {
-  background-color: #ff5100;
-  font-weight: bold;
-  border-radius: 50%;
-}
-
-.btn-delete:hover {
-  color: #0051ff !important;
-  border-color: #0051ff;
-  font-weight: bold;
-  /* color: #f8cb04 !important; */
-  background-color: #f8cb04;
-}
-
-
 
 /* Angular Material Table */
 mat-header-cell,
@@ -45,12 +32,12 @@ mat-cell {
   width: fit-content;
 }
 
-.mat-btn-delete,
+.mat-btn-icon,
 .mat-btn-edit {
   color: #ff5100;
 }
 
-.mat-btn-delete:hover,
+.mat-btn-icon:hover,
 .mat-btn-edit:hover {
   color: #0051ff !important;
 }
@@ -61,29 +48,54 @@ mat-cell {
   color: blue !important;
 }
 
-
-/*change color of placeholder*/
+/* change color of placeholder */
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
   color: #ff5100;
 }
 
-/*change color of underline*/
+/* change color of underline */
 ::ng-deep .mat-form-field-underline {
   background-color: #ff5100 !important;
 }
 
-/*change color of label*/
+/* change color of label */
 ::ng-deep .mat-focused .mat-form-field-label {
   color: #0051ff !important;
 }
 
-/*change color of underline when focused*/
+/* change color of underline when focused */
 ::ng-deep .mat-form-field-ripple {
   background-color: #0051ff !important;
   ;
 }
 
+
+
 /* .mat-column-Actions {
   flex: 0 0 100px !important;
   white-space: unset !important;
+} */
+
+/* .table-body {
+  background-color: #ff5e00;
+} */
+
+/* .table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #ff7300;
+} */
+
+/* delete button colors */
+/* .btn-delete {
+  background-color: #ff5100;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.btn-delete:hover {
+  color: #0051ff !important;
+  border-color: #0051ff;
+  font-weight: bold;
+  color: #f8cb04 !important;
+  background-color: #f8cb04;
 } */

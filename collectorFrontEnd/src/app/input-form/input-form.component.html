@@ -1,0 +1,55 @@
+<!-- Dialog Form -->
+
+<h2 mat-dialog-title>{{inputForm.controls['id'].value ? "Edit Item" : "Add Item"}}</h2>
+<form [formGroup]="inputForm" (ngSubmit)="onSubmit(inputForm.value)" class="inputForm">
+
+ <!-- <mat-dialog-content> -->
+   
+  <mat-grid-list cols="2" rows="3" rowHeight="200" gutterSize="5px">
+
+    <mat-grid-tile>
+      <div class="inputContainer">
+        <mat-form-field>
+          <!-- <mat-label>Release Year</mat-label> -->
+          <input matInput formControlName="year" class="form=control" placeholder="Release Year">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <!-- <mat-label>Name</mat-label> -->
+          <input matInput formControlName="name" class="form=control" placeholder="Name">
+        </mat-form-field>
+      <!-- <br /> -->
+      <!-- {{ inputForm.value | json }} -->
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <div class="inputContainer">
+        <mat-form-field>
+          <!-- <mat-label>Brand</mat-label> -->
+          <input matInput formControlName="brand" class="form=control" placeholder="Brand">
+        </mat-form-field>
+    
+        <mat-form-field>
+          <!-- <mat-label>Manufacturer</mat-label> -->
+          <input matInput formControlName="mfr" class="form=control" placeholder="Manufacturer">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div>
+        <mat-dialog-actions>
+          <button mat-raised-button mat-dialog-close class="btn-add text-white" type="submit">Submit</button>
+        </mat-dialog-actions>
+      </div>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+
+<!-- </mat-dialog-content> -->
+</form>
+
+
+<!-- <div style="text-align:center">
+  <app-input></app-input>
+</div> -->

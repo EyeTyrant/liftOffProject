@@ -19,7 +19,7 @@ export class MatDisplayComponent implements OnInit {
   displayedColumns: string[] = [];
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  // collection: any[];
+
   constructor(
     private collectorService: CollectorService,
     public dialog: MatDialog
@@ -32,62 +32,68 @@ export class MatDisplayComponent implements OnInit {
       "mfr",
       "edit",
       "delete",
+      "test",
     ];
   }
 
-  // ngOnInit() {
-  //   this.collectorService
-  //     .getAllFromServer()
-  //     .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
-  //   this.dataSource.sort = this.sort;
-  // }
   ngOnInit() {
     this.collectorService.refrestOnSubmit.subscribe(() => {
       this.getCollection();
     });
     this.getCollection();
   }
+
   private getCollection() {
     this.collectorService
       .getAllFromServer()
       .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
     this.dataSource.sort = this.sort;
-    // console.log(Response);
   }
 
-  logData(row: any) {
-    console.log(row);
-  }
   public filter = (value: string) => {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   };
 
+  // CLICK ON ADD NEW BUTTON TO OPEN DIALOG FORM FOR INPUT
+  onCreate() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height = "40%";
+    this.dialog.open(InputFormComponent, dialogConfig);
+  }
+
+  // CLICK ON EDIT ICON TO OPEN DIALOG POPULATED WITH ROW DATA TO EDIT
+  onEdit(item: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "60%";
+    dialogConfig.height = "40%";
+    dialogConfig.data = item;
+    this.dialog.open(InputFormComponent, dialogConfig);
+  }
+
+  // CLICK ON DELETE ICON TO DELETE ROW FROM DATABASE
   onDelete(item: string): void {
     this.collectorService
       .deleteItem(item["id"])
       .subscribe((_response) => this.ngOnInit()); //ngOnInit() reloads display component on delete in stead of entire page as with location.reload();.
   }
 
-  onEdit(id: string) {
-    this.dialog.open(InputFormComponent);
-    this.collectorService.getItem(id);
-    this.populateForm(id);
-    console.log(id);
+  // DEV.. CONSOLE LOG ROW DATA
+  logData(row: any) {
+    console.log(`logData() from any click on a row = ${row.id}`);
+    return row;
   }
 
-  populateForm(row: any) {
-    this.collectorService.inputForm.setValue = row;
+  // DEV.. CLICK ON TEST ICON TO CONSOLE LOG DATA
+  test(item: { id: number }) {
+    let car = this.collectorService.getItem(item.id);
+    car.subscribe((response) => {
+      console.log("test() returns getItem(item.id) =", response);
+      return response; // use response.id to return just the id
+    });
   }
 }
-
-// export class MyDataSource extends DataSource<DieCast> {
-//   constructor(private collectorService: CollectorService) {
-//     super();
-//   }
-//   connect(): Observable<DieCast[]> {
-//     return this.collectorService.getAllFromServer();
-//   }
-//   disconnect() {}
-
-//   filter() {}
-// }
