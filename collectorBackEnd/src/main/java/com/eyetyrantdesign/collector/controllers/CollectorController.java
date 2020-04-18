@@ -48,7 +48,7 @@ public class CollectorController {
    dieCastRepository.deleteById(id);
   }
 
-  @PutMapping("list/{id}")
+  @PatchMapping("list/{id}")
 //  @CrossOrigin(origins = "http://localhost:4200")
   public DieCast updateItem(@RequestBody DieCast editDieCast) {
     return dieCastRepository.save(editDieCast);
