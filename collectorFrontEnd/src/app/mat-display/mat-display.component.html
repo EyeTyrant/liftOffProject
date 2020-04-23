@@ -1,11 +1,13 @@
 <h2>Collection List</h2>
+<br>
+<mat-toolbar class="toolbar">
 <div class="container">
-  <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New</button>
-</div>
-<div class="container">
-  <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
+  <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New Item</button>
 </div>
 
+<!-- <div class="container">
+  <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
+</div> -->
 
 <div class="container">
   <mat-form-field>
@@ -16,7 +18,8 @@
       placeholder="Search"/>
   </mat-form-field>
 </div>
-
+</mat-toolbar>
+<br>
 <div class="container">
   <mat-table
     matSort
@@ -48,31 +51,37 @@
     </ng-container>
 
     <ng-container matColumnDef="edit">
-      <mat-header-cell class="table-head" *matHeaderCellDef>Edit</mat-header-cell>
+      <mat-header-cell class="table-head" *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let item">
         <button mat-icon-button class="mat-btn-icon">
           <mat-icon (click)="onEdit(item)">create</mat-icon>
         </button>
-      </mat-cell>
-    </ng-container>
-    
-    <ng-container matColumnDef="delete">
-      <mat-header-cell class="table-head" *matHeaderCellDef>Delete</mat-header-cell>
-      <mat-cell *matCellDef="let item">
+        <!-- DELETE THIS BUTTON, ADD "Edit" TEXT TO HEADER CELL ABOVE, AND UNCOMMENT THE DELETE COLUMN BELOW FOR SEPARATE EDIT AND DELETE COLUMNS -->
         <button mat-icon-button class="mat-btn-icon">
-          <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
+            <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
+    
+    <!-- SEPARATE COLUMN FOR DELETE BUTTONS -->
+    <!-- <ng-container matColumnDef="delete">
+      <mat-header-cell class="table-head" *matHeaderCellDef>Delete</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+          <button mat-icon-button class="mat-btn-icon">
+            <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container> -->
 
-    <ng-container matColumnDef="test">
+    <!-- BUTTONS FOR TESTING (SINK OR SWIM)-->
+    <!-- <ng-container matColumnDef="test">
       <mat-header-cell class="table-head" *matHeaderCellDef>Test</mat-header-cell>
       <mat-cell *matCellDef="let item">
         <button mat-icon-button class="mat-btn-icon">
           <mat-icon (click)="test(item)">pool</mat-icon>
         </button>
       </mat-cell>
-    </ng-container>
+    </ng-container> -->
     
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row

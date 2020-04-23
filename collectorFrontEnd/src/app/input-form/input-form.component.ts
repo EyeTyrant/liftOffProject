@@ -3,11 +3,9 @@
 import { Component, OnInit, Inject } from "@angular/core";
 
 import { CollectorService } from "../collector.service";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
-import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { Observable } from "rxjs";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { DieCast } from "../collection";
-import { MatDisplayComponent } from "../mat-display/mat-display.component";
 
 @Component({
   selector: "app-input-form",
@@ -53,28 +51,27 @@ export class InputFormComponent implements OnInit {
 
   // CLICK SUBMIT TO ADD NEW ROW OR UPDATE ROW DATA AND CLOSE DIALOG
   createItem() {
-    // if (this.inputForm.valid) {
-    this.collectorService
-      .addItem(this.inputForm.value)
-      .subscribe((response) => {
-        console.log("Success", response);
-      });
-    this.inputForm.reset();
-    this.onClose();
-    // }
+    if (this.inputForm.valid) {
+      this.collectorService
+        .addItem(this.inputForm.value)
+        .subscribe((response) => {
+          console.log("Success", response);
+        });
+      this.inputForm.reset();
+      this.onClose();
+    }
   }
 
   // CLICK SUBMIT TO UPDATE DATABASE ROW
   editItem(dieCast: DieCast): void {
-    this.collectorService
-      .updateItem(dieCast.id, dieCast)
-      .subscribe((response) => {
-        console.log("Success", response);
-      });
-    this.inputForm.reset();
-    this.dialogRef
-      .afterClosed()
-      .subscribe((val) => console.log("Dialog output", val));
+    if (this.inputForm.valid) {
+      this.collectorService
+        .updateItem(dieCast.id, dieCast)
+        .subscribe((response) => {
+          console.log("Success", response);
+        });
+      this.inputForm.reset();
+    }
   }
 
   // RESETS DIALOG FORM ON CLOSE

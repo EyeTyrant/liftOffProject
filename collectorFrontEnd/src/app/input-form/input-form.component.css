@@ -1,4 +1,15 @@
-/* color of Submit button */
+/* INPUT DIALOG TOOLBAR (TITLE AND CLOSE BUTTON) */
+.mat-toolbar {
+  display: flex;
+  margin: 0px 0px 20px 0px;
+  background-color: #fff;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+/* COLOR OF SUBMIT BUTTON */
 .btn-add {
   background-color: #ff5100;
   /* font-weight: bold; */

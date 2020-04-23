@@ -1,14 +1,30 @@
 <!-- Dialog Form -->
+<div class="container">
+<mat-toolbar>
 
-<h2 mat-dialog-title>{{inputForm.controls['id'].value ? "Edit Item" : "Add Item"}}</h2>
+  <div>
+    <h2 mat-dialog-title>{{inputForm.controls['id'].value ? "Edit Item" : "Add New Item"}}</h2>
+  </div>
+  <span class="fill-space"></span>
+  <div>
+    <button mat-icon-button class="mat-dialog-close" tabIndex="-1">
+      <mat-icon (click)="onClose()">cancel</mat-icon>
+    </button>
+  </div>
+    
+  </mat-toolbar>
+</div>
+
+
+<div class="container">
 <form [formGroup]="inputForm" (ngSubmit)="onSubmit(inputForm.value)" class="inputForm">
 
- <!-- <mat-dialog-content> -->
+ <mat-dialog-content>
    
-  <mat-grid-list cols="2" rows="3" rowHeight="200" gutterSize="5px">
+  <mat-grid-list cols="2" rowHeight="130" gutterSize="5px">
 
     <mat-grid-tile>
-      <div class="inputContainer">
+      <div class="container">
         <mat-form-field>
           <!-- <mat-label>Release Year</mat-label> -->
           <input matInput formControlName="year" class="form=control" placeholder="Release Year">
@@ -24,7 +40,7 @@
     </mat-grid-tile>
 
     <mat-grid-tile>
-      <div class="inputContainer">
+      <div class="container">
         <mat-form-field>
           <!-- <mat-label>Brand</mat-label> -->
           <input matInput formControlName="brand" class="form=control" placeholder="Brand">
@@ -36,19 +52,19 @@
         </mat-form-field>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile>
+    <mat-grid-tile colspan="2">
       <div>
         <mat-dialog-actions>
-          <button mat-raised-button mat-dialog-close class="btn-add text-white" type="submit">Submit</button>
+          <button mat-raised-button mat-dialog-close class="btn-add text-white" style="width : 400px;" type="submit">Submit</button>
         </mat-dialog-actions>
       </div>
     </mat-grid-tile>
 
   </mat-grid-list>
 
-<!-- </mat-dialog-content> -->
+</mat-dialog-content>
 </form>
-
+</div>
 
 <!-- <div style="text-align:center">
   <app-input></app-input>

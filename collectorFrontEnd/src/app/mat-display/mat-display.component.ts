@@ -31,8 +31,8 @@ export class MatDisplayComponent implements OnInit {
       "brand",
       "mfr",
       "edit",
-      "delete",
-      "test",
+      // "delete", // UNCOMMENT THIS TO ADD SEPARATE DELETE COLUMN
+      // "test", // UNCOMMENT THIS TO ADD TEST BUTTON COLUMN
     ];
   }
 
@@ -59,8 +59,6 @@ export class MatDisplayComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.height = "40%";
     this.dialog.open(InputFormComponent, dialogConfig);
   }
 
@@ -69,8 +67,6 @@ export class MatDisplayComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "60%";
-    dialogConfig.height = "40%";
     dialogConfig.data = item;
     this.dialog.open(InputFormComponent, dialogConfig);
   }

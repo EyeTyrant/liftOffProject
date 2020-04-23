@@ -1,4 +1,11 @@
-/* Bootstrap Table */
+/* DISPLAY LIST TOOLBAR (ADD BUTTON AND SEARCH INPUT) */
+.mat-toolbar {
+  display: flex;
+  /* margin-bottom: 10px; */
+  background-color: #fff;
+}
+
+/* BOOTSTRAP TABLE */
 .table-head {
   color: #ff5100;
   font-size: 1.1rem;
@@ -6,7 +13,7 @@
   /* background-color: #ff5100; */
 }
 
-/* color of Add New button */
+/* COLOR OF "ADD NEW ITEM" BUTTON */
 .btn-add {
   background-color: #ff5100;
   /* font-weight: bold; */
@@ -17,7 +24,7 @@
   background-color: #f8cb04;
 }
 
-/* table row background color on hover */
+/* TABLE ROW BACKGROUND COLOR ON HOVER */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
   color: #0051ff;
@@ -25,7 +32,7 @@
   /* font-weight: 600; */
 }
 
-/* Angular Material Table */
+/* ANGULAR MATERIAL TABLE */
 mat-header-cell,
 mat-cell {
   justify-content: center;
@@ -48,22 +55,22 @@ mat-cell {
   color: blue !important;
 }
 
-/* change color of placeholder */
+/* CHANGE COLOR OF PLACEHOLDER */
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
   color: #ff5100;
 }
 
-/* change color of underline */
+/* CHANGE COLOR OF INPUT UNDERLINE */
 ::ng-deep .mat-form-field-underline {
   background-color: #ff5100 !important;
 }
 
-/* change color of label */
+/* CHANGE COLOR OF LABEL */
 ::ng-deep .mat-focused .mat-form-field-label {
   color: #0051ff !important;
 }
 
-/* change color of underline when focused */
+/* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 ::ng-deep .mat-form-field-ripple {
   background-color: #0051ff !important;
   ;
