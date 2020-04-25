@@ -79,17 +79,17 @@ export class MatDisplayComponent implements OnInit {
   }
 
   // DEV.. CONSOLE LOG ROW DATA
-  logData(row: any) {
-    console.log(`logData() from any click on a row = ${row.id}`);
-    return row;
-  }
+  // logData(row: any) {
+  //   console.log(`logData() from any click on a row = ${row.id}`);
+  //   return row;
+  // }
 
   // DEV.. CLICK ON TEST ICON TO CONSOLE LOG DATA
-  test(item: { id: number }) {
-    let car = this.collectorService.getItem(item.id);
-    car.subscribe((response) => {
-      console.log("test() returns getItem(item.id) =", response);
-      return response; // use response.id to return just the id
-    });
-  }
+  // test(item: { id: number }) {
+  //   let car = this.collectorService.getItem(item.id);
+  //   car.subscribe((response) => {
+  //     console.log("test() returns getItem(item.id) =", response);
+  //     return response; // use response.id to return just the id
+  //   });
+  // }
 }

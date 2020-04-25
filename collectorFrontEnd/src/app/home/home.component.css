@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+#dieCastBgImg {
+  background-image: url("../../assets/img/lotus.jpg");
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+}
+
+nav {
+  /* background-color: #f86e03; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* height: 40px; */
+  margin-top: 35px;
+  /* align-items: center; */
+}
+
+#title {
+  font-size: 3em;
+  color: #343a40;
+}

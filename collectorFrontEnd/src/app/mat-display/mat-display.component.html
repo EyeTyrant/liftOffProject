@@ -85,8 +85,10 @@
     
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
-      (click)="logData(row)"
+      
       *matRowDef="let row; columns: displayedColumns">
     </mat-row>
   </mat-table>
 </div>
+<!-- PLACE THIS CLICK EVENT IN OPENING TAG OF MAT-ROW AND UNCOMMENT THE METHOD TO LOG THE DATA FROM ROW ON CLICK -->
+(click)="logData(row)"

@@ -11,7 +11,8 @@ import { FormBuilder } from "@angular/forms";
   providedIn: "root",
 })
 export class CollectorService {
-  private collectorListUrl = "http://localhost:8080/list";
+  private indexUrl = "http://localhost:8080/diecast/index";
+  private collectorListUrl = "http://localhost:8080/diecast/list";
   private url = `${this.collectorListUrl}`;
 
   constructor(private http: HttpClient) {}

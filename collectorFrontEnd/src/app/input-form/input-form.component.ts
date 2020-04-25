@@ -15,7 +15,7 @@ import { DieCast } from "../collection";
 export class InputFormComponent implements OnInit {
   // inputForm = this.collectorService.inputForm;
   inputForm: FormGroup;
-  dieCast: DieCast;
+  // dieCast: DieCast;
   constructor(
     private frmBldr: FormBuilder,
     private collectorService: CollectorService,
