@@ -10,10 +10,11 @@ import { HeaderComponent } from "./header/header.component";
 import { CollectorService } from "./collector.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MaterialModule } from "./material/material.module";
-import { MatDisplayComponent } from "./mat-display/mat-display.component";
-import { InputFormComponent } from "./input-form/input-form.component";
+import { DieCastListComponent } from "./diecast-list/diecast-list.component";
+import { DieCastInputFormComponent } from "./diecast-input-form/diecast-input-form.component";
 import { MatGridListModule } from "@angular/material";
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from "./home/home.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 @NgModule({
   declarations: [
@@ -21,8 +22,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     // InputComponent,
     // DisplayComponent,
-    MatDisplayComponent,
-    InputFormComponent,
+    DieCastListComponent,
+    DieCastInputFormComponent,
     HomeComponent,
   ],
   imports: [
@@ -32,9 +33,10 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     MaterialModule,
     MatGridListModule,
+    AppRoutingModule,
   ],
   providers: [CollectorService],
-  entryComponents: [InputFormComponent],
+  entryComponents: [DieCastInputFormComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
