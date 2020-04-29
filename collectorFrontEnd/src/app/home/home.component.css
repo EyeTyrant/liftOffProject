@@ -36,6 +36,10 @@ body {
   color: #f86e03;
 }
 
+/* :VISITED MUST COME BEFORE HOVER i.e. STATE ORDER :LINK :VISITED :HOVER :ACTIVE */
+#navBar a:visited {
+  color: #343a40 !important;
+}
 
 #navBar a:hover {
   color: #f86e03 !important;

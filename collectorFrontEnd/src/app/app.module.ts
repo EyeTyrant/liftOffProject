@@ -14,15 +14,16 @@ import { DieCastListComponent } from "./diecast-list/diecast-list.component";
 import { DieCastInputFormComponent } from "./diecast-input-form/diecast-input-form.component";
 import { MatGridListModule } from "@angular/material";
 import { HomeComponent } from "./home/home.component";
-import { AppRoutingModule } from "./app-routing.module";
+import { AppRoutingModule, routedComponents } from "./app-routing.module";
 
 @NgModule({
   declarations: [
     AppComponent,
+    routedComponents,
     HeaderComponent,
     // InputComponent,
     // DisplayComponent,
-    DieCastListComponent,
+    // DieCastListComponent,
     DieCastInputFormComponent,
     HomeComponent,
   ],

@@ -1,8 +1,19 @@
+/* DIV CONTAINING PAGE TITLE, BUTTON, AND SEARCH */
+/* .list-head {
+  text-align: center;
+  margin-top: 10px;
+} */
+h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* DISPLAY LIST TOOLBAR (ADD BUTTON AND SEARCH INPUT) */
 .mat-toolbar {
   display: flex;
   /* margin-bottom: 10px; */
   background-color: #fff;
+  text-align: center;
 }
 
 /* BOOTSTRAP TABLE */
