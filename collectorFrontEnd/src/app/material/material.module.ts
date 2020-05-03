@@ -4,7 +4,12 @@ import {
   MatTableModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSortModule
+  MatSortModule,
+  MatIconModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatToolbarModule,
+  MatTabsModule,
 } from "@angular/material";
 
 const material = [
@@ -12,11 +17,16 @@ const material = [
   MatTableModule,
   MatInputModule,
   MatFormFieldModule,
-  MatSortModule
+  MatSortModule,
+  MatIconModule,
+  MatDialogModule,
+  MatGridListModule,
+  MatToolbarModule,
+  MatTabsModule,
 ];
 
 @NgModule({
   imports: [material],
-  exports: [material]
+  exports: [material],
 })
 export class MaterialModule {}

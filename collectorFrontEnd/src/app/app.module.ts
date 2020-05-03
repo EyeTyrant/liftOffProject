@@ -11,6 +11,8 @@ import { CollectorService } from "./collector.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MaterialModule } from "./material/material.module";
 import { MatDisplayComponent } from "./mat-display/mat-display.component";
+import { InputFormComponent } from "./input-form/input-form.component";
+import { MatGridListModule } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -18,16 +20,19 @@ import { MatDisplayComponent } from "./mat-display/mat-display.component";
     HeaderComponent,
     InputComponent,
     DisplayComponent,
-    MatDisplayComponent
+    MatDisplayComponent,
+    InputFormComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    MatGridListModule,
   ],
   providers: [CollectorService],
-  bootstrap: [AppComponent]
+  entryComponents: [InputFormComponent],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

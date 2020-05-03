@@ -1,4 +1,13 @@
 <h2>Collection List</h2>
+<br>
+<mat-toolbar class="toolbar">
+<div class="container">
+  <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New Item</button>
+</div>
+
+<!-- <div class="container">
+  <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
+</div> -->
 
 <div class="container">
   <mat-form-field>
@@ -6,70 +15,78 @@
       matInput
       type="text"
       (keyup)="filter($event.target.value)"
-      placeholder="Search"
-    />
+      placeholder="Search"/>
   </mat-form-field>
 </div>
-
+</mat-toolbar>
+<br>
 <div class="container">
   <mat-table
     matSort
     class="table table-striped table-hover table-sm"
-    [dataSource]="dataSource"
-  >
+    [dataSource]="dataSource">
     <ng-container matColumnDef="id">
-      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header
-        >ID</mat-header-cell
-      >
+      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
       <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="year">
-      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header
-        >Year</mat-header-cell
-      >
+      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
       <mat-cell *matCellDef="let item">{{ item.year }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="name">
-      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header
-        >Name</mat-header-cell
-      >
+      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
       <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="brand">
-      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header
-        >Brand</mat-header-cell
-      >
+      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header>Brand</mat-header-cell>
       <mat-cell *matCellDef="let item">{{ item.brand }}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="mfr">
-      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header
-        >Manufacturer</mat-header-cell
-      >
+      <mat-header-cell class="table-head" *matHeaderCellDef mat-sort-header>Manufacturer</mat-header-cell>
       <mat-cell *matCellDef="let item">{{ item.mfr }}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="delete">
-      <mat-header-cell class="table-head" *matHeaderCellDef
-        >Delete</mat-header-cell
-      >
-      <mat-cell *matCellDef="let item"
-        ><button
-          class="btn btn-delete btn-sm text-white"
-          (click)="onDelete(item)"
-        >
-          X
-        </button></mat-cell
-      >
+    <ng-container matColumnDef="edit">
+      <mat-header-cell class="table-head" *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button class="mat-btn-icon">
+          <mat-icon (click)="onEdit(item)">create</mat-icon>
+        </button>
+        <!-- DELETE THIS BUTTON, ADD "Edit" TEXT TO HEADER CELL ABOVE, AND UNCOMMENT THE DELETE COLUMN BELOW FOR SEPARATE EDIT AND DELETE COLUMNS -->
+        <button mat-icon-button class="mat-btn-icon">
+            <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
+        </button>
+      </mat-cell>
     </ng-container>
+    
+    <!-- SEPARATE COLUMN FOR DELETE BUTTONS -->
+    <!-- <ng-container matColumnDef="delete">
+      <mat-header-cell class="table-head" *matHeaderCellDef>Delete</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+          <button mat-icon-button class="mat-btn-icon">
+            <mat-icon (click)="onDelete(item)">delete_forever</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container> -->
 
+    <!-- BUTTONS FOR TESTING (SINK OR SWIM)-->
+    <!-- <ng-container matColumnDef="test">
+      <mat-header-cell class="table-head" *matHeaderCellDef>Test</mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <button mat-icon-button class="mat-btn-icon">
+          <mat-icon (click)="test(item)">pool</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container> -->
+    
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
       (click)="logData(row)"
-      *matRowDef="let row; columns: displayedColumns"
-    ></mat-row>
+      *matRowDef="let row; columns: displayedColumns">
+    </mat-row>
   </mat-table>
 </div>

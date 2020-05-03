@@ -1,18 +1,30 @@
+/* DISPLAY LIST TOOLBAR (ADD BUTTON AND SEARCH INPUT) */
+.mat-toolbar {
+  display: flex;
+  /* margin-bottom: 10px; */
+  background-color: #fff;
+}
+
+/* BOOTSTRAP TABLE */
 .table-head {
   color: #ff5100;
   font-size: 1.1rem;
   font-weight: bold;
   /* background-color: #ff5100; */
 }
-.table-body {
-  /* background-color: #ff5e00; */
+
+/* COLOR OF "ADD NEW ITEM" BUTTON */
+.btn-add {
+  background-color: #ff5100;
+  /* font-weight: bold; */
 }
 
-/* .table-striped > tbody > tr:nth-child(odd) > td,
-.table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #ff7300;
-} */
+.btn-add:hover {
+  color: #0051ff !important;
+  background-color: #f8cb04;
+}
 
+/* TABLE ROW BACKGROUND COLOR ON HOVER */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
   color: #0051ff;
@@ -20,7 +32,68 @@
   /* font-weight: 600; */
 }
 
-.btn-delete {
+/* ANGULAR MATERIAL TABLE */
+mat-header-cell,
+mat-cell {
+  justify-content: center;
+  width: fit-content;
+}
+
+.mat-btn-icon,
+.mat-btn-edit {
+  color: #ff5100;
+}
+
+.mat-btn-icon:hover,
+.mat-btn-edit:hover {
+  color: #0051ff !important;
+}
+
+.mat-row:hover {
+  background-color: #e5edff;
+  font-weight: bold;
+  color: blue !important;
+}
+
+/* CHANGE COLOR OF PLACEHOLDER */
+::ng-deep .mat-form-field-empty.mat-form-field-label {
+  color: #ff5100;
+}
+
+/* CHANGE COLOR OF INPUT UNDERLINE */
+::ng-deep .mat-form-field-underline {
+  background-color: #ff5100 !important;
+}
+
+/* CHANGE COLOR OF LABEL */
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #0051ff !important;
+}
+
+/* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
+::ng-deep .mat-form-field-ripple {
+  background-color: #0051ff !important;
+  ;
+}
+
+
+
+/* .mat-column-Actions {
+  flex: 0 0 100px !important;
+  white-space: unset !important;
+} */
+
+/* .table-body {
+  background-color: #ff5e00;
+} */
+
+/* .table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #ff7300;
+} */
+
+/* delete button colors */
+/* .btn-delete {
   background-color: #ff5100;
   font-weight: bold;
   border-radius: 50%;
@@ -30,16 +103,6 @@
   color: #0051ff !important;
   border-color: #0051ff;
   font-weight: bold;
-  /* color: #f8cb04 !important; */
+  color: #f8cb04 !important;
   background-color: #f8cb04;
-}
-
-mat-header-cell,
-mat-cell {
-  justify-content: center;
-  width: fit-content;
-}
-/* .mat-column-Actions {
-  flex: 0 0 100px !important;
-  white-space: unset !important;
 } */
