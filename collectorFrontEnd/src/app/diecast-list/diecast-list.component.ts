@@ -59,6 +59,7 @@ export class DieCastListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
+    // dialogConfig.panelClass = "add-dialog";
     this.dialog.open(DieCastInputFormComponent, dialogConfig);
   }
 

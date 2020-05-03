@@ -44,3 +44,13 @@ body {
 #navBar a:hover {
   color: #f86e03 !important;
 }
+
+/* KEEPS POINTER WHEN HOVERING LINK THAT ACTS AS A BUTTON (CLICK)="EVENT()" */
+#navBar a,
+a label {
+  cursor: pointer;
+}
+
+/* .reg-dialog .mat-dialog-container {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+} */

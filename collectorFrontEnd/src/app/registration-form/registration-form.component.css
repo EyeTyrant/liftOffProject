@@ -1,0 +1,80 @@
+/* DIALOG BOX */
+.reg-dialog .mat-dialog-container {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 8px 8px 50px #7d7d7d;
+}
+
+/* BACKDROP CLASS WHEN DIALOG BOX IS OPEN */
+.reg-dialog-backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+
+/* INPUT DIALOG TOOLBAR (TITLE AND CLOSE BUTTON) */
+.reg-dialog .mat-toolbar {
+  display: flex;
+  margin: 0px 0px 20px 0px;
+  background-color: transparent;
+  color: #a0a0a0;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
+
+/* DIALOG TOOLBAR */
+::ng-deep .mat-toolbar {
+  background-color: transparent !important;
+}
+
+/* DIALOG CLOSE BUTTON ICON */
+.reg-dialog .mat-icon {
+  color: #a0a0a0;
+}
+
+/* COLOR OF SUBMIT BUTTON */
+.reg-dialog .btn-reg {
+  background-color: #000;
+  /* font-weight: bold; */
+  color: #a0a0a0;
+  box-shadow: 1px 1px 10px #7d7d7d;
+
+}
+
+.btn-reg:hover {
+  background-color: #a0a0a0;
+  color: #000 !important;
+  box-shadow: 1.5px 1.5px 15px #7d7d7d;
+}
+
+/* .reg-dialog .mat-form-field-infix {
+  background-color: rgba(192, 192, 192, 0.05) !important;
+  box-shadow: 1px 1px 10px #7d7d7d;
+} */
+
+/* CUSTOM COLOR OF PLACEHOLDER LABEL */
+.reg-dialog .mat-form-field-empty.mat-form-field-label {
+  color: #7d7d7d;
+}
+
+/* CUSTOM COLOR OF INPUT UNDERLINE */
+.reg-dialog .mat-form-field-underline {
+  background-color: #7d7d7d !important;
+}
+
+/* CUSTOM COLOR OF LABEL WHEN FILLED AND NOT FOCUSED */
+.reg-dialog .mat-form-field-label {
+  color: #7d7d7d !important;
+}
+
+/* CHANGE COLOR OF LABEL ON FOCUS*/
+.reg-dialog .mat-focused .mat-form-field-label {
+  color: #f86e03 !important;
+}
+
+/* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
+.reg-dialog .mat-form-field-ripple {
+  background-color: #f86e03 !important;
+  ;
+}

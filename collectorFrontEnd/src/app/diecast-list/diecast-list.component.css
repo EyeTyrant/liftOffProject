@@ -3,6 +3,8 @@
   text-align: center;
   margin-top: 10px;
 } */
+
+/* H2 "TITLE" FOR PAGE */
 h2 {
   text-align: center;
   margin-top: 10px;
@@ -18,7 +20,7 @@ h2 {
 
 /* BOOTSTRAP TABLE */
 .table-head {
-  color: #ff5100;
+  color: #f86e03;
   font-size: 1.1rem;
   font-weight: bold;
   /* background-color: #ff5100; */
@@ -26,7 +28,7 @@ h2 {
 
 /* COLOR OF "ADD NEW ITEM" BUTTON */
 .btn-add {
-  background-color: #ff5100;
+  background-color: #f86e03;
   /* font-weight: bold; */
 }
 
@@ -52,7 +54,7 @@ mat-cell {
 
 .mat-btn-icon,
 .mat-btn-edit {
-  color: #ff5100;
+  color: #f86e03;
 }
 
 .mat-btn-icon:hover,
@@ -66,17 +68,23 @@ mat-cell {
   color: blue !important;
 }
 
-/* CHANGE COLOR OF PLACEHOLDER */
+
+/* CUSTOM COLOR OF PLACEHOLDER LABEL */
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
-  color: #ff5100;
+  color: #f86e03;
 }
 
-/* CHANGE COLOR OF INPUT UNDERLINE */
+/* CUSTOM COLOR OF INPUT UNDERLINE */
 ::ng-deep .mat-form-field-underline {
-  background-color: #ff5100 !important;
+  background-color: #f86e03 !important;
 }
 
-/* CHANGE COLOR OF LABEL */
+/* CUSTOM COLOR OF LABEL WHEN FILLED AND NOT FOCUSED */
+::ng-deep .mat-form-field-label {
+  color: #f86e03 !important;
+}
+
+/* CHANGE COLOR OF LABEL ON FOCUS*/
 ::ng-deep .mat-focused .mat-form-field-label {
   color: #0051ff !important;
 }

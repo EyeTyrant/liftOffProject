@@ -15,6 +15,7 @@ import { DieCastInputFormComponent } from "./diecast-input-form/diecast-input-fo
 import { MatGridListModule } from "@angular/material";
 import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule, routedComponents } from "./app-routing.module";
+import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AppRoutingModule, routedComponents } from "./app-routing.module";
     // DieCastListComponent,
     DieCastInputFormComponent,
     HomeComponent,
+    RegistrationFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,11 +35,11 @@ import { AppRoutingModule, routedComponents } from "./app-routing.module";
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    MatGridListModule,
+    // MatGridListModule,
     AppRoutingModule,
   ],
   providers: [CollectorService],
-  entryComponents: [DieCastInputFormComponent],
+  entryComponents: [DieCastInputFormComponent, RegistrationFormComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,4 +1,4 @@
-// Edit Item Dialog Form
+// CREATE AND EDIT DIECAST ITEM FORM
 
 import { Component, OnInit, Inject } from "@angular/core";
 
@@ -13,9 +13,8 @@ import { DieCast } from "../collection";
   styleUrls: ["./diecast-input-form.component.css"],
 })
 export class DieCastInputFormComponent implements OnInit {
-  // inputForm = this.collectorService.inputForm;
   inputForm: FormGroup;
-  // dieCast: DieCast;
+
   constructor(
     private frmBldr: FormBuilder,
     private collectorService: CollectorService,
