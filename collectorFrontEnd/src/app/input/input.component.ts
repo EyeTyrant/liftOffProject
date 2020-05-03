@@ -36,7 +36,6 @@ export class InputComponent implements OnInit {
         .addItem(this.dieCastInputForm.value)
         .subscribe(response => console.log("Success", response));
       this.dieCastInputForm.reset();
-      location.reload();
     }
   }
 

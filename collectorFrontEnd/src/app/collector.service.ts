@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { DieCast } from "./collection";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root"
@@ -11,7 +12,13 @@ export class CollectorService {
 
   constructor(private http: HttpClient) {}
 
-  getCollection(): Observable<DieCast[]> {
+  private _refreshOnSubmit = new Subject<void>();
+
+  get refrestOnSubmit() {
+    return this._refreshOnSubmit;
+  }
+
+  getAllFromServer(): Observable<DieCast[]> {
     return this.http.get<DieCast[]>(this.collectorListUrl);
   }
 
@@ -21,8 +28,13 @@ export class CollectorService {
 
   addItem(dieCast: DieCast): Observable<DieCast> {
     // console.log(dieCast);
-    return this.http.post<DieCast>(this.collectorListUrl, dieCast);
+    return this.http.post<DieCast>(this.collectorListUrl, dieCast).pipe(
+      tap(() => {
+        this._refreshOnSubmit.next();
+      })
+    );
   }
+
   deleteItem(id: number) {
     const url = `${this.collectorListUrl}/${id}`;
     return this.http.delete<DieCast>(url);
