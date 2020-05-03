@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { InputComponent } from "./input.component";
+import { DieCastInputFormComponent } from "./diecast-input-form.component";
 
-describe("InputComponent", () => {
-  let component: InputComponent;
-  let fixture: ComponentFixture<InputComponent>;
+describe("InputFormComponent", () => {
+  let component: DieCastInputFormComponent;
+  let fixture: ComponentFixture<DieCastInputFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [InputComponent]
+      declarations: [DieCastInputFormComponent],
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputComponent);
+    fixture = TestBed.createComponent(DieCastInputFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

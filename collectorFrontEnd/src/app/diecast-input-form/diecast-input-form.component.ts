@@ -8,19 +8,19 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { DieCast } from "../collection";
 
 @Component({
-  selector: "app-input-form",
-  templateUrl: "./input-form.component.html",
-  styleUrls: ["./input-form.component.css"],
+  selector: "app-diecast-input-form",
+  templateUrl: "./diecast-input-form.component.html",
+  styleUrls: ["./diecast-input-form.component.css"],
 })
-export class InputFormComponent implements OnInit {
+export class DieCastInputFormComponent implements OnInit {
   // inputForm = this.collectorService.inputForm;
   inputForm: FormGroup;
-  dieCast: DieCast;
+  // dieCast: DieCast;
   constructor(
     private frmBldr: FormBuilder,
     private collectorService: CollectorService,
     // public dialog: MatDialog,
-    public dialogRef: MatDialogRef<InputFormComponent>,
+    public dialogRef: MatDialogRef<DieCastInputFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data
   ) {
     // this.inputForm = data.inputForm;

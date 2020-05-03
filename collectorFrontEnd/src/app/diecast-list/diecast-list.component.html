@@ -1,24 +1,29 @@
-<h2>Collection List</h2>
-<br>
-<mat-toolbar class="toolbar">
-<div class="container">
-  <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New Item</button>
+<div style="text-align:center">
+  <!-- <app-header></app-header> -->
 </div>
+<div class="container list-head">
+    <h2>Collection List</h2>
+    <br>
+  <mat-toolbar class="toolbar">
+  <div class="container">
+    <button mat-raised-button (click)="onCreate()" class="btn-add text-white">Add New Item</button>
+  </div>
 
-<!-- <div class="container">
-  <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
-</div> -->
+  <!-- <div class="container">
+    <button mat-raised-button (click)="onTest()" class="btn-add text-white">Test</button>
+  </div> -->
 
-<div class="container">
-  <mat-form-field>
-    <input
-      matInput
-      type="text"
-      (keyup)="filter($event.target.value)"
-      placeholder="Search"/>
-  </mat-form-field>
+  <div class="container">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        (keyup)="filter($event.target.value)"
+        placeholder="Search"/>
+    </mat-form-field>
+  </div>
+  </mat-toolbar>
 </div>
-</mat-toolbar>
 <br>
 <div class="container">
   <mat-table
@@ -85,8 +90,10 @@
     
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row
-      (click)="logData(row)"
+      
       *matRowDef="let row; columns: displayedColumns">
     </mat-row>
   </mat-table>
 </div>
+<!-- PLACE THIS CLICK EVENT IN OPENING TAG OF MAT-ROW AND UNCOMMENT THE METHOD TO LOG THE DATA FROM ROW ON CLICK -->
+<!-- (click)="logData(row)" -->

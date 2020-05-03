@@ -7,14 +7,14 @@ import {
   MatDialog,
   MatDialogConfig,
 } from "@angular/material";
-import { InputFormComponent } from "../input-form/input-form.component";
+import { DieCastInputFormComponent } from "../diecast-input-form/diecast-input-form.component";
 
 @Component({
-  selector: "app-mat-display",
-  templateUrl: "./mat-display.component.html",
-  styleUrls: ["./mat-display.component.css"],
+  selector: "app-diecast-list",
+  templateUrl: "./diecast-list.component.html",
+  styleUrls: ["./diecast-list.component.css"],
 })
-export class MatDisplayComponent implements OnInit {
+export class DieCastListComponent implements OnInit {
   dataSource: MatTableDataSource<DieCast> = new MatTableDataSource<DieCast>();
   displayedColumns: string[] = [];
 
@@ -59,7 +59,7 @@ export class MatDisplayComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    this.dialog.open(InputFormComponent, dialogConfig);
+    this.dialog.open(DieCastInputFormComponent, dialogConfig);
   }
 
   // CLICK ON EDIT ICON TO OPEN DIALOG POPULATED WITH ROW DATA TO EDIT
@@ -68,7 +68,7 @@ export class MatDisplayComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.data = item;
-    this.dialog.open(InputFormComponent, dialogConfig);
+    this.dialog.open(DieCastInputFormComponent, dialogConfig);
   }
 
   // CLICK ON DELETE ICON TO DELETE ROW FROM DATABASE
@@ -79,17 +79,17 @@ export class MatDisplayComponent implements OnInit {
   }
 
   // DEV.. CONSOLE LOG ROW DATA
-  logData(row: any) {
-    console.log(`logData() from any click on a row = ${row.id}`);
-    return row;
-  }
+  // logData(row: any) {
+  //   console.log(`logData() from any click on a row = ${row.id}`);
+  //   return row;
+  // }
 
   // DEV.. CLICK ON TEST ICON TO CONSOLE LOG DATA
-  test(item: { id: number }) {
-    let car = this.collectorService.getItem(item.id);
-    car.subscribe((response) => {
-      console.log("test() returns getItem(item.id) =", response);
-      return response; // use response.id to return just the id
-    });
-  }
+  // test(item: { id: number }) {
+  //   let car = this.collectorService.getItem(item.id);
+  //   car.subscribe((response) => {
+  //     console.log("test() returns getItem(item.id) =", response);
+  //     return response; // use response.id to return just the id
+  //   });
+  // }
 }
