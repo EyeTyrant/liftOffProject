@@ -18,6 +18,10 @@ h2 {
   text-align: center;
 }
 
+.mat-toolbar .mat-input-element {
+  caret-color: var(--hot-blue);
+}
+
 /* BOOTSTRAP TABLE */
 .table-head {
   color: var(--hot-orange);
@@ -74,6 +78,11 @@ mat-cell {
   color: var(--hot-orange);
 }
 
+/* CUSTOM COLOR OF INPUT CARET */
+::ng-deep .mat-input-element {
+  caret-color: var(--hot-blue);
+}
+
 /* CUSTOM COLOR OF INPUT UNDERLINE */
 ::ng-deep .mat-form-field-underline {
   background-color: var(--hot-orange) !important;
@@ -92,8 +101,8 @@ mat-cell {
 /* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 ::ng-deep .mat-form-field-ripple {
   background-color: var(--hot-blue) !important;
-  ;
 }
+
 
 
 

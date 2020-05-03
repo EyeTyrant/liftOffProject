@@ -53,9 +53,15 @@
   box-shadow: 1px 1px 10px var(--hot-silver);
 } */
 
+
 /* CUSTOM COLOR OF PLACEHOLDER LABEL */
 .reg-dialog .mat-form-field-empty.mat-form-field-label {
   color: var(--hot-silver);
+}
+
+/* CUSTOM COLOR OF INPUT CARET */
+.reg-dialog .mat-input-element {
+  caret-color: var(--hot-orange);
 }
 
 /* CUSTOM COLOR OF INPUT UNDERLINE */
@@ -76,5 +82,4 @@
 /* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 .reg-dialog .mat-form-field-ripple {
   background-color: var(--hot-orange) !important;
-  ;
 }
