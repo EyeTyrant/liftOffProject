@@ -1,0 +1,32 @@
+<mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.id }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="year">
+    <mat-header-cell *matHeaderCellDef>Year</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.year }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="brand">
+    <mat-header-cell *matHeaderCellDef>Brand</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.brand }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mfr">
+    <mat-header-cell *matHeaderCellDef>Manufacturer</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{ item.mfr }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row
+    (click)="logData(row)"
+    *matRowDef="let row; columns: displayedColumns"
+  ></mat-row>
+</mat-table>
