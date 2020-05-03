@@ -23,11 +23,11 @@ export class HomeComponent implements OnInit {
 
   openReg() {
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = false;
-    dialogConfig.autoFocus = true;
+    // dialogConfig.disableClose = false;
+    // dialogConfig.autoFocus = true;
     this.dialog.open(RegistrationFormComponent, {
       minWidth: "500px",
-      height: "auto",
+      minHeight: "475px",
       panelClass: "reg-dialog",
       backdropClass: "reg-dialog-backdrop",
     });

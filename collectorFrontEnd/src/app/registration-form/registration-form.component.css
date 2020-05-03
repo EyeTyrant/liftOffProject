@@ -1,12 +1,12 @@
 /* DIALOG BOX */
 .reg-dialog .mat-dialog-container {
-  background-color: rgba(0, 0, 0, 0.5) !important;
-  box-shadow: 8px 8px 50px #7d7d7d;
+  background-color: var(--trans-black5) !important;
+  box-shadow: 8px 8px 50px var(--hot-silver);
 }
 
 /* BACKDROP CLASS WHEN DIALOG BOX IS OPEN */
 .reg-dialog-backdrop {
-  background-color: rgba(0, 0, 0, 0.8) !important;
+  background-color: var(--trans-black8) !important;
 }
 
 
@@ -15,7 +15,7 @@
   display: flex;
   margin: 0px 0px 20px 0px;
   background-color: transparent;
-  color: #a0a0a0;
+  color: var(--hot-light-silver);
 }
 
 .fill-space {
@@ -30,51 +30,51 @@
 
 /* DIALOG CLOSE BUTTON ICON */
 .reg-dialog .mat-icon {
-  color: #a0a0a0;
+  color: var(--hot-light-silver);
 }
 
 /* COLOR OF SUBMIT BUTTON */
 .reg-dialog .btn-reg {
-  background-color: #000;
+  background-color: var(--black);
   /* font-weight: bold; */
-  color: #a0a0a0;
-  box-shadow: 1px 1px 10px #7d7d7d;
+  color: var(--hot-light-silver);
+  box-shadow: 1px 1px 10px var(--hot-silver);
 
 }
 
 .btn-reg:hover {
-  background-color: #a0a0a0;
-  color: #000 !important;
-  box-shadow: 1.5px 1.5px 15px #7d7d7d;
+  background-color: var(--hot-light-silver);
+  color: var(--black) !important;
+  box-shadow: 1.5px 1.5px 15px var(--hot-silver);
 }
 
 /* .reg-dialog .mat-form-field-infix {
   background-color: rgba(192, 192, 192, 0.05) !important;
-  box-shadow: 1px 1px 10px #7d7d7d;
+  box-shadow: 1px 1px 10px var(--hot-silver);
 } */
 
 /* CUSTOM COLOR OF PLACEHOLDER LABEL */
 .reg-dialog .mat-form-field-empty.mat-form-field-label {
-  color: #7d7d7d;
+  color: var(--hot-silver);
 }
 
 /* CUSTOM COLOR OF INPUT UNDERLINE */
 .reg-dialog .mat-form-field-underline {
-  background-color: #7d7d7d !important;
+  background-color: var(--hot-silver) !important;
 }
 
 /* CUSTOM COLOR OF LABEL WHEN FILLED AND NOT FOCUSED */
 .reg-dialog .mat-form-field-label {
-  color: #7d7d7d !important;
+  color: var(--hot-silver) !important;
 }
 
 /* CHANGE COLOR OF LABEL ON FOCUS*/
 .reg-dialog .mat-focused .mat-form-field-label {
-  color: #f86e03 !important;
+  color: var(--hot-orange) !important;
 }
 
 /* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 .reg-dialog .mat-form-field-ripple {
-  background-color: #f86e03 !important;
+  background-color: var(--hot-orange) !important;
   ;
 }

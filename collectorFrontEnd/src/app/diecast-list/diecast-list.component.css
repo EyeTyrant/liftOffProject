@@ -14,13 +14,13 @@ h2 {
 .mat-toolbar {
   display: flex;
   /* margin-bottom: 10px; */
-  background-color: #fff;
+  background-color: var(--white);
   text-align: center;
 }
 
 /* BOOTSTRAP TABLE */
 .table-head {
-  color: #f86e03;
+  color: var(--hot-orange);
   font-size: 1.1rem;
   font-weight: bold;
   /* background-color: #ff5100; */
@@ -28,19 +28,19 @@ h2 {
 
 /* COLOR OF "ADD NEW ITEM" BUTTON */
 .btn-add {
-  background-color: #f86e03;
+  background-color: var(--hot-orange);
   /* font-weight: bold; */
 }
 
 .btn-add:hover {
-  color: #0051ff !important;
-  background-color: #f8cb04;
+  color: var(--hot-blue) !important;
+  background-color: var(--hot-yellow);
 }
 
 /* TABLE ROW BACKGROUND COLOR ON HOVER */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  color: #0051ff;
+  color: var(--hot-blue);
   /* background-color: #f8cb04; */
   /* font-weight: 600; */
 }
@@ -54,44 +54,44 @@ mat-cell {
 
 .mat-btn-icon,
 .mat-btn-edit {
-  color: #f86e03;
+  color: var(--hot-orange);
 }
 
 .mat-btn-icon:hover,
 .mat-btn-edit:hover {
-  color: #0051ff !important;
+  color: var(--hot-blue) !important;
 }
 
 .mat-row:hover {
-  background-color: #e5edff;
+  background-color: var(--hot-blue-tint);
   font-weight: bold;
-  color: blue !important;
+  color: var(--hot-blue) !important;
 }
 
 
 /* CUSTOM COLOR OF PLACEHOLDER LABEL */
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
-  color: #f86e03;
+  color: var(--hot-orange);
 }
 
 /* CUSTOM COLOR OF INPUT UNDERLINE */
 ::ng-deep .mat-form-field-underline {
-  background-color: #f86e03 !important;
+  background-color: var(--hot-orange) !important;
 }
 
 /* CUSTOM COLOR OF LABEL WHEN FILLED AND NOT FOCUSED */
 ::ng-deep .mat-form-field-label {
-  color: #f86e03 !important;
+  color: var(--hot-orange) !important;
 }
 
 /* CHANGE COLOR OF LABEL ON FOCUS*/
 ::ng-deep .mat-focused .mat-form-field-label {
-  color: #0051ff !important;
+  color: var(--hot-blue) !important;
 }
 
 /* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 ::ng-deep .mat-form-field-ripple {
-  background-color: #0051ff !important;
+  background-color: var(--hot-blue) !important;
   ;
 }
 
