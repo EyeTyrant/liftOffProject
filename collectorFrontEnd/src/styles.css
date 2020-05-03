@@ -35,3 +35,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+/* input:-internal-autofill-selected {
+  background-color: var(--trans-black5) !important;
+  color: white !important;
+} */

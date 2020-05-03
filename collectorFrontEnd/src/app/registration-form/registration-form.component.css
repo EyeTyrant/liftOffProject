@@ -62,7 +62,24 @@
 /* CUSTOM COLOR OF INPUT CARET */
 .reg-dialog .mat-input-element {
   caret-color: var(--hot-orange);
+  color: var(--white);
 }
+
+/* THIS WILL DELAY CHROME'S USER AGENT STYLESHEET FROM CHANGING THE BACKGROUND AND TEXT WHEN AN INPUT IS SELECTED USING AUTOCOMPLETE */
+/* ALTERNATE SOLUTION - USING AUTOCOMPLETE="OFF" IN THE FORM TAG */
+.reg-dialog input:-webkit-autofill,
+/* .reg-dialog input:-webkit-autofill:hover, */
+.reg-dialog input:-webkit-autofill:focus,
+.reg-dialog input:-webkit-autofill:active {
+  transition-delay: 50000s;
+  -webkit-text-fill-color: var(--white) !important;
+}
+
+/* BUG IN CHROME BROWSER - DIRECTLY SETTING THE STYLES DOES NOT WORK */
+/* input:-webkit-autofill:active {
+  background: var(--trans-black5) !important;
+  color: white !important;
+} */
 
 /* CUSTOM COLOR OF INPUT UNDERLINE */
 .reg-dialog .mat-form-field-underline {

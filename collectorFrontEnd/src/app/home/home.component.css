@@ -54,3 +54,7 @@ a label {
 /* .reg-dialog .mat-dialog-container {
   background-color: rgba(0, 0, 0, 0.4) !important;
 } */
+/* input:-internal-autofill-selected {
+  background-color: var(--trans-black5) !important;
+  color: white !important;
+} */
