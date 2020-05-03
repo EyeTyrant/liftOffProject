@@ -3,6 +3,8 @@
   text-align: center;
   margin-top: 10px;
 } */
+
+/* H2 "TITLE" FOR PAGE */
 h2 {
   text-align: center;
   margin-top: 10px;
@@ -12,13 +14,17 @@ h2 {
 .mat-toolbar {
   display: flex;
   /* margin-bottom: 10px; */
-  background-color: #fff;
+  background-color: var(--white);
   text-align: center;
+}
+
+.mat-toolbar .mat-input-element {
+  caret-color: var(--hot-blue);
 }
 
 /* BOOTSTRAP TABLE */
 .table-head {
-  color: #ff5100;
+  color: var(--hot-orange);
   font-size: 1.1rem;
   font-weight: bold;
   /* background-color: #ff5100; */
@@ -26,19 +32,19 @@ h2 {
 
 /* COLOR OF "ADD NEW ITEM" BUTTON */
 .btn-add {
-  background-color: #ff5100;
+  background-color: var(--hot-orange);
   /* font-weight: bold; */
 }
 
 .btn-add:hover {
-  color: #0051ff !important;
-  background-color: #f8cb04;
+  color: var(--hot-blue) !important;
+  background-color: var(--hot-yellow);
 }
 
 /* TABLE ROW BACKGROUND COLOR ON HOVER */
 .table-hover tbody tr:hover td,
 .table-hover tbody tr:hover th {
-  color: #0051ff;
+  color: var(--hot-blue);
   /* background-color: #f8cb04; */
   /* font-weight: 600; */
 }
@@ -52,40 +58,51 @@ mat-cell {
 
 .mat-btn-icon,
 .mat-btn-edit {
-  color: #ff5100;
+  color: var(--hot-orange);
 }
 
 .mat-btn-icon:hover,
 .mat-btn-edit:hover {
-  color: #0051ff !important;
+  color: var(--hot-blue) !important;
 }
 
 .mat-row:hover {
-  background-color: #e5edff;
+  background-color: var(--hot-blue-tint);
   font-weight: bold;
-  color: blue !important;
+  color: var(--hot-blue) !important;
 }
 
-/* CHANGE COLOR OF PLACEHOLDER */
+
+/* CUSTOM COLOR OF PLACEHOLDER LABEL */
 ::ng-deep .mat-form-field-empty.mat-form-field-label {
-  color: #ff5100;
+  color: var(--hot-orange);
 }
 
-/* CHANGE COLOR OF INPUT UNDERLINE */
+/* CUSTOM COLOR OF INPUT CARET */
+::ng-deep .mat-input-element {
+  caret-color: var(--hot-blue);
+}
+
+/* CUSTOM COLOR OF INPUT UNDERLINE */
 ::ng-deep .mat-form-field-underline {
-  background-color: #ff5100 !important;
+  background-color: var(--hot-orange) !important;
 }
 
-/* CHANGE COLOR OF LABEL */
+/* CUSTOM COLOR OF LABEL WHEN FILLED AND NOT FOCUSED */
+::ng-deep .mat-form-field-label {
+  color: var(--hot-orange) !important;
+}
+
+/* CHANGE COLOR OF LABEL ON FOCUS*/
 ::ng-deep .mat-focused .mat-form-field-label {
-  color: #0051ff !important;
+  color: var(--hot-blue) !important;
 }
 
 /* CHANGE COLOR OF INPUT UNDERLINE WHEN FOCUSED */
 ::ng-deep .mat-form-field-ripple {
-  background-color: #0051ff !important;
-  ;
+  background-color: var(--hot-blue) !important;
 }
+
 
 
 

@@ -2,7 +2,7 @@
 .mat-toolbar {
   display: flex;
   margin: 0px 0px 20px 0px;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .fill-space {
@@ -11,11 +11,11 @@
 
 /* COLOR OF SUBMIT BUTTON */
 .btn-add {
-  background-color: #ff5100;
+  background-color: var(--hot-orange);
   /* font-weight: bold; */
 }
 
 .btn-add:hover {
-  color: #0051ff !important;
-  background-color: #f8cb04;
+  color: var(--hot-blue) !important;
+  background-color: var(--hot-yellow);
 }

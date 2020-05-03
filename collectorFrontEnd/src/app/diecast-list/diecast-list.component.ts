@@ -59,6 +59,9 @@ export class DieCastListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
+    dialogConfig.minWidth = "500px";
+    dialogConfig.minHeight = "auto";
+    // dialogConfig.panelClass = "add-dialog";
     this.dialog.open(DieCastInputFormComponent, dialogConfig);
   }
 

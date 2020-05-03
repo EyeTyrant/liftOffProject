@@ -33,14 +33,28 @@ body {
 #title {
   font-size: 3em;
   /* color: #343a40; */
-  color: #f86e03;
+  color: var(--hot-orange);
 }
 
 /* :VISITED MUST COME BEFORE HOVER i.e. STATE ORDER :LINK :VISITED :HOVER :ACTIVE */
 #navBar a:visited {
-  color: #343a40 !important;
+  color: var(--hot-charcoal) !important;
 }
 
 #navBar a:hover {
-  color: #f86e03 !important;
+  color: var(--hot-orange) !important;
 }
+
+/* KEEPS POINTER WHEN HOVERING LINK THAT ACTS AS A BUTTON (CLICK)="EVENT()" */
+#navBar a,
+a label {
+  cursor: pointer;
+}
+
+/* .reg-dialog .mat-dialog-container {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+} */
+/* input:-internal-autofill-selected {
+  background-color: var(--trans-black5) !important;
+  color: white !important;
+} */
