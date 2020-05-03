@@ -15,40 +15,40 @@ public class CollectorController {
   private DieCastRepository dieCastRepository;
 
 
-  @RequestMapping("")
+  @RequestMapping("diecast")
   @ResponseBody
   public String index(){
     return "index";
   }
 
 
-  @GetMapping("list")
+  @GetMapping("diecast/list")
 //  @CrossOrigin(origins = "http://localhost:4200")
   @ResponseBody
   public Iterable<DieCast> listAll(){
     return dieCastRepository.findAll();
   }
 
-  @GetMapping("list/{id}")
+  @GetMapping("diecast/list/{id}")
 //  @CrossOrigin(origins = "http://localhost:4200")
   @ResponseBody
   public Optional<DieCast> getItemById(@PathVariable Integer id){
     return dieCastRepository.findById(id);
   }
 
-  @PostMapping("list")
+  @PostMapping("diecast/list")
 //  @CrossOrigin(origins = "http://localhost:4200")
   public DieCast addItem(@RequestBody DieCast newDieCast){
     return dieCastRepository.save(newDieCast);
   }
 
-  @DeleteMapping("list/{id}")
+  @DeleteMapping("diecast/list/{id}")
 //  @CrossOrigin(origins = "http://localhost:4200")
   public void deleteItemById(@PathVariable("id") Integer id) {
    dieCastRepository.deleteById(id);
   }
 
-  @PatchMapping("list/{id}")
+  @PatchMapping("diecast/list/{id}")
 //  @CrossOrigin(origins = "http://localhost:4200")
   public DieCast updateItem(@RequestBody DieCast editDieCast) {
     return dieCastRepository.save(editDieCast);
