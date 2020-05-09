@@ -6,6 +6,7 @@ import { UserService } from "../user.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from "@angular/material";
 import { User } from "../user";
+import { style } from "@angular/animations";
 
 @Component({
   selector: "app-registration-form",
@@ -26,13 +27,32 @@ export class RegistrationFormComponent implements OnInit {
 
   ngOnInit() {
     this.regForm = this.frmBldr.group({
-      id: this.data ? this.data.id : "",
+      // id: this.data ? this.data.id : "",
       firstName: this.data ? this.data.firstName : "",
       lastName: this.data ? this.data.lastName : "",
       userName: this.data ? this.data.userName : "",
       password: this.data ? this.data.password : "",
       verifyPassword: this.data ? this.data.password : "",
     });
+  }
+
+  onRegistrationSubmit() {
+    if (this.regForm.valid) {
+      this.userService.createUser(this.regForm.value).subscribe(
+        (response) => {
+          console.log("%cUser Registered", "color: green", response);
+        },
+        (error: any) => {
+          console.log(
+            "%cERROR !!! ERROR",
+            "color: orange; font-size: 25px",
+            error
+          );
+        }
+      );
+      this.regForm.reset();
+      this.onClose();
+    }
   }
 
   // RESETS DIALOG FORM ON CLOSE
