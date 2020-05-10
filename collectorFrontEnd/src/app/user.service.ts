@@ -16,9 +16,18 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   private userUrl = "http://localhost:8080/reg";
+  private loginUrl = "http://localhost:8080/login";
 
-  getUser() {
+  getAllUsers() {
     return this.http.get<User[]>(this.userUrl);
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userUrl}/${id}`);
+  }
+
+  submitLoginInput(user: User): Observable<User> {
+    return this.http.post<User>(this.loginUrl, user);
   }
 
   createUser(user: User): Observable<User> {

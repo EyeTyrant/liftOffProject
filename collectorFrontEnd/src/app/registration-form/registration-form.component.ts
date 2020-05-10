@@ -44,6 +44,7 @@ export class RegistrationFormComponent implements OnInit {
           console.log(
             "%cERROR !!! ERROR",
             "color: orange; font-size: 25px",
+            error.error.text,
             error
           );
         }
