@@ -51,7 +51,7 @@ public class AuthenticationController {
 
   @GetMapping("reg")
   @ResponseBody
-  public Iterable<User>getAll() {return userRepository.findAll();}
+  public Iterable<User>getAllUsers() {return userRepository.findAll();}
 
   @GetMapping("reg/{id}")
   @ResponseBody
@@ -64,22 +64,23 @@ public class AuthenticationController {
 
     if (errors.hasErrors()) {
       System.out.println(errors);
-      return "reg";
+      return "reg errors";
     }
 
     User existingUser = userRepository.findByUserName(registrationFormDTO.getUserName());
 
     if (existingUser != null) {
       errors.rejectValue("userName", "userName.exists", "Already exists");
-      return "reg";
+      return "exist";
     }
 
     String password = registrationFormDTO.getPassword();
     String verifyPassword = registrationFormDTO.getVerifyPassword();
 
+
     if (!password.equals(verifyPassword)) {
       errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-      return "reg";
+      return "mismatch";
     }
 
     User newUser = new User(registrationFormDTO.getFirstName(),
@@ -89,8 +90,44 @@ public class AuthenticationController {
     userRepository.save(newUser);
     setUserInSession(request.getSession(), newUser);
 
-    return ""; // can I redirect to users list page here?
+    return "";// PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
+              // AS RETURNING TEXT NOT JSON IN RESPONSE
+  }
+
+  @PostMapping("login")
+  public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
+                                 Errors errors,
+                                 HttpServletRequest request
+                                 ) {
+
+    if (errors.hasErrors()) {
+      return "login errors";
+    }
+
+    User theUser = userRepository.findByUserName(loginFormDTO.getUserName());
+
+    if (theUser == null) {
+      errors.rejectValue("userName", "userName.invalid", "The given username does not exist");
+      return "invalid username";
+    }
+
+    String password = loginFormDTO.getPassword();
+
+    if (!theUser.isMatchingPassword(password)) {
+      errors.rejectValue("password", "password.invalid", "Invalid password");
+      return "invalid password";
+    }
+
+    setUserInSession(request.getSession(), theUser);
+
+    return "";  // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
+  }
+
+  @GetMapping("logout")
+  public String logout(HttpServletRequest request) {
+    request.getSession().invalidate();
+    return "";
   }
 }

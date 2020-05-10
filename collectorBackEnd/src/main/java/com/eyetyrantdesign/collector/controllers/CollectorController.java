@@ -24,7 +24,7 @@ public class CollectorController {
 
   @GetMapping("diecast/list")
   @ResponseBody
-  public Iterable<DieCast> listAll(){
+  public Iterable<DieCast> listAllItems(){
     return dieCastRepository.findAll();
   }
 
