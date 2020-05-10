@@ -2,8 +2,10 @@ package com.eyetyrantdesign.collector.controllers;
 
 import com.eyetyrantdesign.collector.models.User;
 import com.eyetyrantdesign.collector.models.data.UserRepository;
+import com.eyetyrantdesign.collector.models.dto.LoginFormDTO;
 import com.eyetyrantdesign.collector.models.dto.RegistrationFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
