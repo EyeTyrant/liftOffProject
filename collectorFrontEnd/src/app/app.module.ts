@@ -16,6 +16,7 @@ import { MatGridListModule } from "@angular/material";
 import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule, routedComponents } from "./app-routing.module";
 import { RegistrationFormComponent } from "./registration-form/registration-form.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RegistrationFormComponent } from "./registration-form/registration-form
     DieCastInputFormComponent,
     HomeComponent,
     RegistrationFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,11 @@ import { RegistrationFormComponent } from "./registration-form/registration-form
     AppRoutingModule,
   ],
   providers: [CollectorService],
-  entryComponents: [DieCastInputFormComponent, RegistrationFormComponent],
+  entryComponents: [
+    DieCastInputFormComponent,
+    RegistrationFormComponent,
+    LoginFormComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

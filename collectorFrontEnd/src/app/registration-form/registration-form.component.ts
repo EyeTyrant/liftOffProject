@@ -4,9 +4,7 @@ import { Component, OnInit, Inject, ViewEncapsulation } from "@angular/core";
 
 import { UserService } from "../user.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from "@angular/material";
-import { User } from "../user";
-import { style } from "@angular/animations";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 
 @Component({
   selector: "app-registration-form",
