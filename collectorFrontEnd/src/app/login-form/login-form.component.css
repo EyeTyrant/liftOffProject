@@ -75,7 +75,7 @@
   -webkit-text-fill-color: var(--white) !important;
 }
 
-/* BUG IN CHROME BROWSER - DIRECTLY SETTING THE STYLES DOES NOT WORK */
+/* CHROME BROWSER BUG - DIRECTLY SETTING THE STYLES DOES NOT WORK */
 /* input:-webkit-autofill:active {
   background: var(--trans-black5) !important;
   color: var(--white) !important;

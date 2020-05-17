@@ -34,25 +34,49 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLoginSubmit(): void {
-    if (this.loginForm.valid) {
-      this.userService.submitLoginInput(this.loginForm.value).subscribe(
-        (response) => {
-          console.log(
-            "%cThis is user",
-            "color: green; font-size: 20px",
-            response // return statement from successful login is null (empty string (return "";))
-          );
-        },
-        (error: any) => {
-          console.log(
-            "%cERROR !! ERROR",
-            "color: orangered; font-size: 25px",
-            this.loginForm.value,
-            error
-          );
+    // if (this.loginForm.valid) {
+    this.userService.submitLoginInput(this.loginForm.value).subscribe(
+      (data: any) => {
+        // console.log(
+        //   "%cLogin Data Received",
+        //   "color: greenyellow; font-size: 20px",
+        //   data
+        // );
+        if (
+          data == "Invalid Password" ||
+          data == "Invalid User Name, Please Register"
+        ) {
+          console.log(data);
+          alert(data);
+          this.showMenuFalse();
+        } else {
+          this.showMenuTrue();
         }
-      );
-    }
+      }
+      // (response) => {
+      //   console.log(
+      //     "%cSuccessful login",
+      //     "color: green; font-size: 20px",
+      //     response // return statement from successful login is null (empty string (return "";))
+      //   );
+      // }
+      // (error: any) => {
+      //   console.log(
+      //     "%cERROR !! ERROR",
+      //     "color: orangered; font-size: 25px",
+      //     this.loginForm.value,
+      //     error
+      //   );
+      // }
+    );
+    // }
+  }
+
+  showMenuTrue() {
+    this.userService.seeMenu(true);
+  }
+  showMenuFalse() {
+    this.userService.seeMenu(false);
   }
 
   // RESETS DIALOG FORM ON CLOSE

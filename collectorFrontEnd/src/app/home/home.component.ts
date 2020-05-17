@@ -11,9 +11,16 @@ import { LoginFormComponent } from "../login-form/login-form.component";
   // encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  menuVisible: boolean;
 
-  ngOnInit() {}
+  constructor(private userService: UserService, public dialog: MatDialog) {}
+  // TODO: SHOW MENU LINK ON HOMEPAGE ONLY IF USER IS LOGGED IN
+
+  ngOnInit() {
+    this.userService.currentMenuState.subscribe(
+      (menuVisible) => (this.menuVisible = menuVisible)
+    );
+  }
 
   openReg() {
     // dialogConfig.disableClose = false;

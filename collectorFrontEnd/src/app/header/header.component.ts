@@ -3,10 +3,10 @@ import { Component, OnInit } from "@angular/core";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
-  styleUrls: ["./header.component.css"]
+  styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent implements OnInit {
-  // TODO: make this a function to change title to match chosen collection
+  // TODO:  make this a function to change title to match chosen collection
   title = "Die Cast";
 
   constructor() {}
