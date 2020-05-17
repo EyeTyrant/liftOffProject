@@ -5,8 +5,7 @@ import com.eyetyrantdesign.collector.models.data.UserRepository;
 import com.eyetyrantdesign.collector.models.dto.LoginFormDTO;
 import com.eyetyrantdesign.collector.models.dto.RegistrationFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,7 +56,7 @@ public class AuthenticationController {
   @ResponseBody
   public Optional<User> getUserById(@PathVariable Integer id) {return userRepository.findById(id);}
 
-  @PostMapping("reg")
+  @PostMapping(value= "reg", produces = MediaType.APPLICATION_JSON_VALUE)
   public String processRegistrationForm(@RequestBody @Valid RegistrationFormDTO registrationFormDTO,
                                          Errors errors,
                                          HttpServletRequest request) {
@@ -90,11 +89,14 @@ public class AuthenticationController {
     userRepository.save(newUser);
     setUserInSession(request.getSession(), newUser);
 
-    return "";// PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
+    String first = newUser.getFirstName();
+    String last = newUser.getLastName();
+
+    return first + " " + last;// PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
               // AS RETURNING TEXT NOT JSON IN RESPONSE
   }
 
-  @PostMapping("login")
+  @PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
   public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
                                  Errors errors,
                                  HttpServletRequest request
@@ -108,19 +110,25 @@ public class AuthenticationController {
 
     if (theUser == null) {
       errors.rejectValue("userName", "userName.invalid", "The given username does not exist");
-      return "invalid username";
+      return "Invalid User Name, Please Register";
     }
 
     String password = loginFormDTO.getPassword();
 
     if (!theUser.isMatchingPassword(password)) {
       errors.rejectValue("password", "password.invalid", "Invalid password");
-      return "invalid password";
+      return "Invalid Password";
     }
 
     setUserInSession(request.getSession(), theUser);
 
-    return "";  // can I redirect to users list page here?
+
+//    String first = theUser.getFirstName();
+//    String last = theUser.getLastName();
+//    return first + " " + last;
+      String username = String.valueOf(theUser);
+    return "Welcome "+ username + " you are now logged in.";
+//    return ""; // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
   }
