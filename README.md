@@ -1,5 +1,5 @@
 # LiftOffProject
-LaunchCode LiftOff Project: Angular, Bootstrap front-end. Java Spring Boot, Hibernate, mySQL back-end.
+LaunchCode LiftOff Project: Angular, Bootstrap front-end. Java Spring Boot, Hibernate, MySQL back-end.
 
 ## Collection Catalog
 
@@ -11,7 +11,7 @@ Additional features presently considered include additional collection types (e.
 
 I hope to deploy this project to the web as soon as the MVP is ready and before implementing additional features.
 
-Collection Catalog utilizes an Angular front-end for user interaction and client side validation. Bootstrap is employed to manage CSS. Some custom CSS is expected. Java Spring Boot will implement Hibernate to communicate with a mySQL database. VSCode, IntilliJ, and mySQL Workbench are being used to create this project. For this project I am also using Git for version control and Trello for progress tracking.
+Collection Catalog utilizes an Angular front-end for user interaction and client side validation. Bootstrap is employed to manage CSS. Some custom CSS is expected. Java Spring Boot will implement Hibernate to communicate with a MySQL database. VSCode, IntilliJ, and MySQL Workbench are being used to create this project. For this project I am also using Git for version control and Trello for progress tracking.
 
 An initial wireframe example of a single page version created with Adobe Illustrator is displayed below and other examples considered can be found [here](https://github.com/EyeTyrant/liftOffProject/tree/master/wireframes).
 
