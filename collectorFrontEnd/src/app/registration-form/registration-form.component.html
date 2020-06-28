@@ -17,7 +17,7 @@
 
 
 <div class="container dial">
-  <form autocomplete="off" [formGroup]="regForm" (ngSubmit)="onSubmit(regForm.value)" class="regForm">
+  <form autocomplete="off" [formGroup]="regForm" (ngSubmit)="onRegistrationSubmit(regForm.value)" class="regForm">
     <mat-dialog-content>
 
       <mat-grid-list cols="2" rowHeight="70" gutterSize="5px">
@@ -37,7 +37,7 @@
 
         <mat-grid-tile>
           <mat-form-field>
-            <input matInput formControlName="userName" class="form=control" placeholder="User Name">
+            <input matInput formControlName="userName" class="form=control"   placeholder="User Name">
           </mat-form-field>
         <!-- </div> -->
         </mat-grid-tile>

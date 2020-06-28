@@ -15,7 +15,8 @@
 
   <div class="container">
     <mat-form-field>
-      <input
+      <input 
+        autocomplete="off"
         matInput
         type="text"
         (keyup)="filter($event.target.value)"

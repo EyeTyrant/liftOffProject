@@ -1,4 +1,4 @@
-// Service to hold functions to be used by any component
+// SERVICE TO HOLD API CALLS TO DIECAST TABLE IN DATABASE
 
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
@@ -13,7 +13,7 @@ import { FormBuilder } from "@angular/forms";
 export class CollectorService {
   private indexUrl = "http://localhost:8080/diecast/index";
   private collectorListUrl = "http://localhost:8080/diecast/list";
-  private url = `${this.collectorListUrl}`;
+  private dieCastUrl = `${this.collectorListUrl}`;
 
   constructor(private http: HttpClient) {}
 
@@ -24,15 +24,15 @@ export class CollectorService {
   }
 
   getAllFromServer(): Observable<DieCast[]> {
-    return this.http.get<DieCast[]>(this.url);
+    return this.http.get<DieCast[]>(this.dieCastUrl);
   }
 
   getItem(id: number): Observable<DieCast> {
-    return this.http.get<DieCast>(`${this.url}/${id}`);
+    return this.http.get<DieCast>(`${this.dieCastUrl}/${id}`);
   }
 
   addItem(dieCast: DieCast): Observable<DieCast> {
-    return this.http.post<DieCast>(this.url, dieCast).pipe(
+    return this.http.post<DieCast>(this.dieCastUrl, dieCast).pipe(
       tap(() => {
         this._refreshOnSubmit.next();
       })
@@ -40,7 +40,7 @@ export class CollectorService {
   }
 
   updateItem(id: number, dieCast: DieCast): Observable<void> {
-    return this.http.patch<void>(`${this.url}/${id}`, dieCast).pipe(
+    return this.http.patch<void>(`${this.dieCastUrl}/${id}`, dieCast).pipe(
       tap(() => {
         this._refreshOnSubmit.next();
       })
@@ -48,6 +48,6 @@ export class CollectorService {
   }
 
   deleteItem(id: number) {
-    return this.http.delete<DieCast>(`${this.url}/${id}`);
+    return this.http.delete<DieCast>(`${this.dieCastUrl}/${id}`);
   }
 }

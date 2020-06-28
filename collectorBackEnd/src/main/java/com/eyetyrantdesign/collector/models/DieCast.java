@@ -6,11 +6,11 @@ import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
-public class DieCast {
+public class DieCast extends AbstractEntity{
 
-  @Id
-  @GeneratedValue
-  private Integer id;
+//  @Id
+//  @GeneratedValue
+//  private Integer id;
 
   private Integer year;
   private String name;
@@ -58,9 +58,9 @@ public class DieCast {
     this.mfr = mfr;
   }
 
-  public Integer getId() {
-    return id;
-  }
+//  public Integer getId() {
+//    return id;
+//  }
 
   @Override
   public String toString() {

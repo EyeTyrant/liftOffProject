@@ -35,7 +35,8 @@
 
 /* COLOR OF SUBMIT BUTTON */
 .reg-dialog .btn-reg {
-  background-color: var(--black);
+  background-color: transparent;
+  /* background-color: var(--black); */
   /* font-weight: bold; */
   color: var(--hot-light-silver);
   box-shadow: 1px 1px 10px var(--hot-silver);
@@ -78,7 +79,7 @@
 /* BUG IN CHROME BROWSER - DIRECTLY SETTING THE STYLES DOES NOT WORK */
 /* input:-webkit-autofill:active {
   background: var(--trans-black5) !important;
-  color: white !important;
+  color: var(--white) !important;
 } */
 
 /* CUSTOM COLOR OF INPUT UNDERLINE */
