@@ -2,9 +2,10 @@ package com.eyetyrantdesign.collector.controllers;
 
 import com.eyetyrantdesign.collector.models.User;
 import com.eyetyrantdesign.collector.models.data.UserRepository;
+import com.eyetyrantdesign.collector.models.dto.LoginFormDTO;
 import com.eyetyrantdesign.collector.models.dto.RegistrationFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,35 +50,36 @@ public class AuthenticationController {
 
   @GetMapping("reg")
   @ResponseBody
-  public Iterable<User>getAll() {return userRepository.findAll();}
+  public Iterable<User>getAllUsers() {return userRepository.findAll();}
 
   @GetMapping("reg/{id}")
   @ResponseBody
   public Optional<User> getUserById(@PathVariable Integer id) {return userRepository.findById(id);}
 
-  @PostMapping("reg")
+  @PostMapping(value= "reg", produces = MediaType.APPLICATION_JSON_VALUE)
   public String processRegistrationForm(@RequestBody @Valid RegistrationFormDTO registrationFormDTO,
                                          Errors errors,
                                          HttpServletRequest request) {
 
     if (errors.hasErrors()) {
       System.out.println(errors);
-      return "reg";
+      return "reg errors";
     }
 
     User existingUser = userRepository.findByUserName(registrationFormDTO.getUserName());
 
     if (existingUser != null) {
       errors.rejectValue("userName", "userName.exists", "Already exists");
-      return "reg";
+      return "exist";
     }
 
     String password = registrationFormDTO.getPassword();
     String verifyPassword = registrationFormDTO.getVerifyPassword();
 
+
     if (!password.equals(verifyPassword)) {
       errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-      return "reg";
+      return "mismatch";
     }
 
     User newUser = new User(registrationFormDTO.getFirstName(),
@@ -87,8 +89,53 @@ public class AuthenticationController {
     userRepository.save(newUser);
     setUserInSession(request.getSession(), newUser);
 
-    return ""; // can I redirect to users list page here?
+    String first = newUser.getFirstName();
+    String last = newUser.getLastName();
+
+    return first + " " + last;// PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
+              // AS RETURNING TEXT NOT JSON IN RESPONSE
+  }
+
+  @PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
+  public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
+                                 Errors errors,
+                                 HttpServletRequest request
+                                 ) {
+
+    if (errors.hasErrors()) {
+      return "login errors";
+    }
+
+    User theUser = userRepository.findByUserName(loginFormDTO.getUserName());
+
+    if (theUser == null) {
+      errors.rejectValue("userName", "userName.invalid", "The given username does not exist");
+      return "Invalid User Name, Please Register";
+    }
+
+    String password = loginFormDTO.getPassword();
+
+    if (!theUser.isMatchingPassword(password)) {
+      errors.rejectValue("password", "password.invalid", "Invalid password");
+      return "Invalid Password";
+    }
+
+    setUserInSession(request.getSession(), theUser);
+
+
+//    String first = theUser.getFirstName();
+//    String last = theUser.getLastName();
+//    return first + " " + last;
+      String username = String.valueOf(theUser);
+    return "Welcome "+ username + " you are now logged in.";
+//    return ""; // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
+  }
+
+  @GetMapping("logout")
+  public String logout(HttpServletRequest request) {
+    request.getSession().invalidate();
+    return "";
   }
 }

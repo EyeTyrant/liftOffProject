@@ -3,7 +3,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "./user";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 
 // const httpOptions = {
 //   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -13,19 +13,46 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class UserService {
+  // CREATES AN OBSERVABLE SUBJECT FOR HOME PAGE MENU STATE AND SETS DEFAULT TO FALSE
+  private showMenuSource = new BehaviorSubject<boolean>(false);
+  currentMenuState = this.showMenuSource.asObservable();
+
   constructor(private http: HttpClient) {}
 
-  private userUrl = "http://localhost:8080/reg";
+  // METHOD TO SET HOME PAGE MENU VISIBILITY
+  seeMenu(message: boolean) {
+    this.showMenuSource.next(message);
+  }
 
-  getUser() {
+  // private showMenu = true;
+  private userUrl = "http://localhost:8080/reg";
+  private loginUrl = "http://localhost:8080/login";
+
+  getAllUsers() {
     return this.http.get<User[]>(this.userUrl);
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userUrl}/${id}`);
+  }
+
+  submitLoginInput(user: User): Observable<User> {
+    let responseMessage = { responseType: "text" as "json" };
+    return this.http.post<User>(
+      this.loginUrl,
+      user,
+      responseMessage
+      //    {
+      //   responseType: "text" as "json",
+      // }
+    );
   }
 
   createUser(user: User): Observable<User> {
     return this.http.post<User>(
       this.userUrl,
-      user
-      //  { responseType: "text" as "json",} // NOT NEEDED WHEN POSTMAPPING RETURNS "" (EMPTY STRING)
+      user,
+      { responseType: "text" as "json" } // NOT NEEDED WHEN POSTMAPPING RETURNS "" (EMPTY STRING)
     );
   }
 }

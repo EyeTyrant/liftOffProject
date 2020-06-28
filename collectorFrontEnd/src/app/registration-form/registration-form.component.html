@@ -1,4 +1,7 @@
 <!-- REGISTRATION DIALOG FORM -->
+
+
+<!-- REGISTRATION-FORM DIALOG TOOLBAR -->
 <div class="container dial">
   <mat-toolbar>
 
@@ -15,7 +18,7 @@
   </mat-toolbar>
 </div>
 
-
+<!-- REGISTRATION-FORM INPUTS -->
 <div class="container dial">
   <form autocomplete="off" [formGroup]="regForm" (ngSubmit)="onRegistrationSubmit(regForm.value)" class="regForm">
     <mat-dialog-content>
@@ -56,6 +59,7 @@
         <!-- </div> -->
         </mat-grid-tile>
 
+        <!-- REGISTRATION-FORM SUBMIT BUTTON -->
         <mat-grid-tile colspan="2">
         <!-- <div> -->
           <mat-dialog-actions>
