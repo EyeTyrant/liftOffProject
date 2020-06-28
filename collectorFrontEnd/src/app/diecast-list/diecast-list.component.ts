@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { CollectorService } from "../collector.service";
-import { DieCast } from "../collection";
+import { CollectorService } from "../_services/collector.service";
+import { DieCast } from "../_models/collection";
+import { User } from "../_models/user";
 import {
   MatTableDataSource,
   MatSort,
@@ -8,6 +9,7 @@ import {
   MatDialogConfig,
 } from "@angular/material";
 import { DieCastInputFormComponent } from "../diecast-input-form/diecast-input-form.component";
+import { UserService } from "../_services/user.service";
 
 @Component({
   selector: "app-diecast-list",
@@ -17,6 +19,7 @@ import { DieCastInputFormComponent } from "../diecast-input-form/diecast-input-f
 export class DieCastListComponent implements OnInit {
   dataSource: MatTableDataSource<DieCast> = new MatTableDataSource<DieCast>();
   displayedColumns: string[] = [];
+  userService: any;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -43,6 +46,7 @@ export class DieCastListComponent implements OnInit {
     this.getCollection();
   }
 
+  // TODO: change this to use getAllByUserFromServer() instead of getAllFromServer() (by passing in userId or userName?)
   private getCollection() {
     this.collectorService
       .getAllFromServer()
@@ -54,7 +58,7 @@ export class DieCastListComponent implements OnInit {
     this.dataSource.filter = value.trim().toLocaleLowerCase();
   };
 
-  // CLICK ON ADD NEW BUTTON TO OPEN DIALOG FORM FOR INPUT
+  // CLICK ON ADD NEW BUTTON TO OPEN BLANK DIALOG FORM FOR INPUT
   onCreate() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;

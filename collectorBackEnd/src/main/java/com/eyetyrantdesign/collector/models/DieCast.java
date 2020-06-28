@@ -1,12 +1,14 @@
 package com.eyetyrantdesign.collector.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 public class DieCast extends AbstractEntity{
+
+  @ManyToOne
+  private User user;
+
 
 //  @Id
 //  @GeneratedValue

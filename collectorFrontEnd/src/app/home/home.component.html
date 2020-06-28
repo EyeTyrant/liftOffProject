@@ -6,11 +6,12 @@
         <nav class="navbar" id="navBar">
           <div class="flex-grow-1 px-5" id="title">COLLECTOR</div>
           <a class="nav-link active px-3 text-dark text h5" href="#">About</a>
-          <a class="nav-link px-3 text-dark text h5" (click)="openLogin()">Log In</a>
-          <a class="nav-link px-3 text-dark text h5" (click)="openReg()">Register</a>
+          <a *ngIf="!menuVisible" class="nav-link px-3 text-dark text h5" (click)="openLogin()">Log In</a>
+          <a *ngIf="!menuVisible" class="nav-link px-3 text-dark text h5" (click)="openReg()">Register</a>
+          <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" (click)="logout()">Log Out</a>
 
           <!-- TODO: MAKE THIS INTO A MENU OF USER'S COLLECTION LISTS -->
-          <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" id="dieCastLink" routerLink="/diecast-list">Die Cast List</a>
+          <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" id="dieCastLink" routerLink="/diecast-list">Your Collections</a>
         </nav>
       </div>
     </header>

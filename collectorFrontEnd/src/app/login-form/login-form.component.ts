@@ -2,10 +2,10 @@
 
 import { Component, OnInit, Inject, ViewEncapsulation } from "@angular/core";
 
-import { UserService } from "../user.service";
+import { UserService } from "../_services/user.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
-import { User } from "../user";
+import { User } from "../_models/user";
 import { Observable } from "rxjs";
 
 @Component({
@@ -51,6 +51,8 @@ export class LoginFormComponent implements OnInit {
           this.showMenuFalse();
         } else {
           this.showMenuTrue();
+          console.log(data);
+          alert(data);
         }
       }
       // (response) => {

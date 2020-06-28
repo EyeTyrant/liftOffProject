@@ -2,7 +2,7 @@
 
 import { Component, OnInit, Inject, ViewEncapsulation } from "@angular/core";
 
-import { UserService } from "../user.service";
+import { UserService } from "../_services/user.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 
