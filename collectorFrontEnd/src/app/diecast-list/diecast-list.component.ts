@@ -45,7 +45,8 @@ export class DieCastListComponent implements OnInit {
     });
     this.getCollection();
   }
-  // TODO: change this to getAllByUser instead of getAll (by passing in userId or userName?)
+
+  // TODO: change this to use getAllByUserFromServer() instead of getAllFromServer() (by passing in userId or userName?)
   private getCollection() {
     this.collectorService
       .getAllFromServer()
