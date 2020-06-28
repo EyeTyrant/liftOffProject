@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material";
-import { UserService } from "../user.service";
+import { UserService } from "../_services/user.service";
 import { RegistrationFormComponent } from "../registration-form/registration-form.component";
 import { LoginFormComponent } from "../login-form/login-form.component";
 

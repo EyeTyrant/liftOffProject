@@ -2,7 +2,7 @@
 
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { DieCast } from "./collection";
+import { DieCast } from "../_models/collection";
 import { Observable, Subject } from "rxjs";
 import { tap } from "rxjs/operators";
 import { FormBuilder } from "@angular/forms";
@@ -25,6 +25,10 @@ export class CollectorService {
 
   getAllFromServer(): Observable<DieCast[]> {
     return this.http.get<DieCast[]>(this.dieCastUrl);
+  }
+
+  getAllByUserFromServer(userId): Observable<DieCast[]> {
+    return this.http.get<DieCast[]>(`${this.dieCastUrl}/${userId}`);
   }
 
   getItem(id: number): Observable<DieCast> {

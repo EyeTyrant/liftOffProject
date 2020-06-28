@@ -2,7 +2,7 @@
 
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { User } from "./user";
+import { User } from "../_models/user";
 import { Observable, BehaviorSubject } from "rxjs";
 
 // const httpOptions = {
@@ -36,6 +36,10 @@ export class UserService {
     return this.http.get<User>(`${this.userUrl}/${id}`);
   }
 
+  getUserByUserName(userName: String): Observable<User> {
+    return this.http.get<User>(`${this.userUrl}/${userName}`);
+  }
+
   submitLoginInput(user: User): Observable<User> {
     let responseMessage = { responseType: "text" as "json" };
     return this.http.post<User>(
@@ -47,6 +51,12 @@ export class UserService {
       // }
     );
   }
+
+  // getJSessionId() {
+  //   var jsId = document.cookie;
+
+  //   return jsId;
+  // }
 
   createUser(user: User): Observable<User> {
     return this.http.post<User>(

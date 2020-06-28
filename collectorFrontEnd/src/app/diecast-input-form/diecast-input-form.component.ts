@@ -2,10 +2,10 @@
 
 import { Component, OnInit, Inject } from "@angular/core";
 
-import { CollectorService } from "../collector.service";
+import { CollectorService } from "../_services/collector.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
-import { DieCast } from "../collection";
+import { DieCast } from "../_models/collection";
 
 @Component({
   selector: "app-diecast-input-form",

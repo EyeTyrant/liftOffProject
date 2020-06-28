@@ -7,8 +7,8 @@ import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./header/header.component";
 // import { InputComponent } from "./input/input.component";
 // import { DisplayComponent } from "./display/display.component";
-import { CollectorService } from "./collector.service";
-import { HttpClientModule } from "@angular/common/http";
+import { CollectorService } from "./_services/collector.service";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { MaterialModule } from "./material/material.module";
 import { DieCastListComponent } from "./diecast-list/diecast-list.component";
 import { DieCastInputFormComponent } from "./diecast-input-form/diecast-input-form.component";
@@ -17,6 +17,7 @@ import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule, routedComponents } from "./app-routing.module";
 import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
+// import { SessionIdInterceptor } from "./_helpers/session-id-interceptor";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,14 @@ import { LoginFormComponent } from "./login-form/login-form.component";
     // MatGridListModule,
     AppRoutingModule,
   ],
-  providers: [CollectorService],
+  providers: [
+    CollectorService,
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: SessionIdInterceptor,
+    //   multi: true,
+    // },
+  ],
   entryComponents: [
     DieCastInputFormComponent,
     RegistrationFormComponent,
