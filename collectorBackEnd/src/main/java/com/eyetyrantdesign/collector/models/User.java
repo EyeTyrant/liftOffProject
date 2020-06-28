@@ -3,11 +3,19 @@ package com.eyetyrantdesign.collector.models;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class User extends AbstractEntity{
+
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+  private final List<DieCast> diecasts = new ArrayList<>();
 
   @NotNull
   private String firstName;
@@ -43,6 +51,10 @@ public class User extends AbstractEntity{
 
   public boolean isMatchingPassword(String password) {
     return encoder.matches(password, pwdHash);
+  }
+
+  public List<DieCast> getDiecasts() {
+    return diecasts;
   }
 
   @Override
