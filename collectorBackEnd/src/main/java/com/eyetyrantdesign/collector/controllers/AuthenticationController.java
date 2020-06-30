@@ -97,7 +97,7 @@ public class AuthenticationController {
   }
 
   @PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
-  public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
+  public Object processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
                                  Errors errors,
                                  HttpServletRequest request
                                  ) {
@@ -122,12 +122,20 @@ public class AuthenticationController {
 
     setUserInSession(request.getSession(), theUser);
 
+    // VERIFIES THE LOGGED IN USER OBJECT IS AVAILABLE IN SESSION
+    System.out.println(theUser.getFirstName());
+    System.out.println(theUser.getLastName());
+    System.out.println(theUser.getUserName());
+    System.out.println(theUser.getId());
+    System.out.println(theUser.getDiecasts());
+    System.out.println(theUser.getClass());
 
 //    String first = theUser.getFirstName();
 //    String last = theUser.getLastName();
 //    return first + " " + last;
       String username = String.valueOf(theUser);
-    return "Welcome "+ username + " you are now logged in.";
+      return theUser.getId();
+//    return "Welcome "+ username + " you are now logged in.";
 //    return ""; // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
