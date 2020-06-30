@@ -1,12 +1,13 @@
 // LOGIN DIALOG FORM
 
 import { Component, OnInit, Inject, ViewEncapsulation } from "@angular/core";
-
+import { DieCastListComponent } from "../diecast-list/diecast-list.component";
 import { UserService } from "../_services/user.service";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { User } from "../_models/user";
 import { Observable } from "rxjs";
+import { Session } from "protractor";
 
 @Component({
   selector: "app-login-form",
@@ -16,7 +17,7 @@ import { Observable } from "rxjs";
 })
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
-
+  dieCastListComponent: DieCastListComponent;
   constructor(
     private frmBldr: FormBuilder,
     private userService: UserService,
@@ -51,8 +52,9 @@ export class LoginFormComponent implements OnInit {
           this.showMenuFalse();
         } else {
           this.showMenuTrue();
-          console.log(data);
-          alert(data);
+          // console.log(data);
+          // alert(data);
+          sessionStorage.setItem("id", data);
         }
       }
       // (response) => {

@@ -10,6 +10,7 @@ import {
 } from "@angular/material";
 import { DieCastInputFormComponent } from "../diecast-input-form/diecast-input-form.component";
 import { UserService } from "../_services/user.service";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-diecast-list",
@@ -19,7 +20,7 @@ import { UserService } from "../_services/user.service";
 export class DieCastListComponent implements OnInit {
   dataSource: MatTableDataSource<DieCast> = new MatTableDataSource<DieCast>();
   displayedColumns: string[] = [];
-  userService: any;
+  userService: UserService;
 
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
@@ -49,9 +50,12 @@ export class DieCastListComponent implements OnInit {
   // TODO: change this to use getAllByUserFromServer() instead of getAllFromServer() (by passing in userId or userName?)
   private getCollection() {
     this.collectorService
-      .getAllFromServer()
+      .getAllByUserFromServer(this.currentUserIdFromSession())
       .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
     this.dataSource.sort = this.sort;
+  }
+  currentUserIdFromSession() {
+    return Number(sessionStorage.getItem("id"));
   }
 
   public filter = (value: string) => {
