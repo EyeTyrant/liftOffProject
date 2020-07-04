@@ -37,13 +37,12 @@ public class AuthenticationController {
 
     return user.get();
   }
+
    private static void setUserInSession(HttpSession session, User user) {
     session.setAttribute(userSessionKey, user.getId());
-   }
+  }
 
-
-
-//   @PostMapping("/reg")
+//  @PostMapping("/reg")
 //  public User addUser(@RequestBody User newUser) {
 //    return userRepository.save(newUser);
 //   }
@@ -121,14 +120,17 @@ public class AuthenticationController {
     }
 
     setUserInSession(request.getSession(), theUser);
-
+    System.out.println(theUser.getId());
 
 //    String first = theUser.getFirstName();
 //    String last = theUser.getLastName();
 //    return first + " " + last;
       String username = String.valueOf(theUser);
+//     return String.valueOf(theUser.getId());
     return "Welcome "+ username + " you are now logged in.";
-//    return ""; // can I redirect to users list page here?
+
+
+    //    return ""; // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
   }
@@ -136,6 +138,6 @@ public class AuthenticationController {
   @GetMapping("logout")
   public String logout(HttpServletRequest request) {
     request.getSession().invalidate();
-    return "";
+    return "redirect:/";
   }
 }
