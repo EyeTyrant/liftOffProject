@@ -96,7 +96,7 @@ public class AuthenticationController {
   }
 
   @PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
-  public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
+  public Object processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
                                  Errors errors,
                                  HttpServletRequest request
                                  ) {
@@ -124,10 +124,11 @@ public class AuthenticationController {
 
 //    String first = theUser.getFirstName();
 //    String last = theUser.getLastName();
-//    return first + " " + last;
+//  return first + " " + last;
       String username = String.valueOf(theUser);
-//     return String.valueOf(theUser.getId());
-    return "Welcome "+ username + " you are now logged in.";
+//  return String.valueOf(theUser.getId());
+    return theUser.getId();
+//    return "Welcome "+ username + " you are now logged in.";
 
 
     //    return ""; // can I redirect to users list page here?

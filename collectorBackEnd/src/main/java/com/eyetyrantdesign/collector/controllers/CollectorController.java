@@ -15,6 +15,9 @@ import java.util.Optional;
 public class CollectorController {
 
   @Autowired
+  private AuthenticationController authenticationController;
+
+  @Autowired
   private DieCastRepository dieCastRepository;
 
   @Autowired
@@ -36,10 +39,10 @@ public class CollectorController {
   @GetMapping("diecast/list/{user_id}")
   @ResponseBody
   public Iterable<DieCast> listAllUserItems(@PathVariable Integer user_id){
-//    Optional<User> aUser = userRepository.findById(user_id);
-//    if(aUser.isPresent()){
-//      System.out.println(aUser.get());
-//    }
+    Optional<User> aUser = userRepository.findById(user_id);
+    if(aUser.isPresent()){
+      System.out.println(aUser.get().getId());
+    }
       return dieCastRepository.findAllById(user_id);
   }
 
