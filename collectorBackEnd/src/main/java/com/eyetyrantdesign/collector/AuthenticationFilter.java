@@ -22,12 +22,12 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
   AuthenticationController authenticationController;
 
   // CREATES A LIST OF PATHS AVAILABLE TO NON LOGGED IN USERS
-  private static final List<String> whitelist = Arrays.asList("/login", "/reg", "/logout", "/home");
+  private static final List<String> whitelist = Arrays.asList("/login", "/reg", "/logout", "/");
 
   // CHECKS IF A PATH IS ON THE WHITELIST
   private static boolean isWhitelisted(String path) {
     for (String pathRoot : whitelist) {
-      if (path.equals(pathRoot)) {
+      if (path.startsWith(pathRoot)) {
         return true;
       }
     }
@@ -55,7 +55,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
       return true;
     }
     // IF USER IS NOT LOGGED IN
-    response.sendRedirect("/home");
+    response.sendRedirect("/");
     return false;
   }
 }
