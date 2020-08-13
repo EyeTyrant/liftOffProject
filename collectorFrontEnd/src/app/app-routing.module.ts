@@ -3,8 +3,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { DieCastListComponent } from "./diecast-list/diecast-list.component";
 import { HomeComponent } from "./home/home.component";
 
+// TODO: Activatedroute, ParamMap for activated routes and parameters a solution?
 const routes: Routes = [
-  { path: "", component: HomeComponent },
+  { path: "home", component: HomeComponent },
   { path: "diecast-list", component: DieCastListComponent },
 ];
 

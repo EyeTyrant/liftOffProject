@@ -40,9 +40,9 @@ public class CollectorController {
   @ResponseBody
   public Iterable<DieCast> listAllUserItems(@PathVariable Integer user_id){
     Optional<User> aUser = userRepository.findById(user_id);
-    if(aUser.isPresent()){
-      System.out.println(aUser.get().getId());
-    }
+//    if(aUser.isPresent()){
+//      System.out.println(aUser.get().getId());
+//    }
       return dieCastRepository.findAllById(user_id);
   }
 

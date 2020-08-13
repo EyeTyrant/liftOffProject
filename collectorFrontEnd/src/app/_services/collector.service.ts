@@ -24,7 +24,7 @@ export class CollectorService {
   }
 
   getAllFromServer(): Observable<DieCast[]> {
-    return this.http.get<DieCast[]>(this.dieCastUrl);
+    return this.http.get<DieCast[]>(this.dieCastUrl, { withCredentials: true });
   }
 
   getAllByUserFromServer(userId): Observable<DieCast[]> {

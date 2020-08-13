@@ -3,7 +3,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../_models/user";
-import { Observable, BehaviorSubject } from "rxjs";
+import { Observable, BehaviorSubject, Subject } from "rxjs";
+import { LoginFormComponent } from "../login-form/login-form.component";
 
 // const httpOptions = {
 //   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -16,6 +17,8 @@ export class UserService {
   // CREATES AN OBSERVABLE SUBJECT FOR HOME PAGE MENU STATE AND SETS DEFAULT TO FALSE
   private showMenuSource = new BehaviorSubject<boolean>(false);
   currentMenuState = this.showMenuSource.asObservable();
+
+  returnedData: any;
 
   constructor(private http: HttpClient) {}
 

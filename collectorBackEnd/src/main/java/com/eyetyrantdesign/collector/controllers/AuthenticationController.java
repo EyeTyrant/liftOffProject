@@ -122,12 +122,13 @@ public class AuthenticationController {
     setUserInSession(request.getSession(), theUser);
     System.out.println(theUser.getId());
 
+    return theUser.getId();
+
 //    String first = theUser.getFirstName();
 //    String last = theUser.getLastName();
 //  return first + " " + last;
-      String username = String.valueOf(theUser);
+//      String username = String.valueOf(theUser);
 //  return String.valueOf(theUser.getId());
-    return theUser.getId();
 //    return "Welcome "+ username + " you are now logged in.";
 
 
