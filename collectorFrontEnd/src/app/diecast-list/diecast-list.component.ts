@@ -50,6 +50,7 @@ export class DieCastListComponent implements OnInit {
   // TODO: change this to use getAllByUserFromServer() instead of getAllFromServer() (by passing in userId or userName?)
   private getCollection() {
     this.collectorService
+      // .getAllFromServer()
       .getAllByUserFromServer(this.currentUserIdFromSession())
       .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
     this.dataSource.sort = this.sort;

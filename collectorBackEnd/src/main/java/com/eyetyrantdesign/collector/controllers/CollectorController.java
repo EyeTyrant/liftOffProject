@@ -27,11 +27,11 @@ public class CollectorController {
     return "index";
   }
 
-//  @GetMapping("diecast/list")
-//  @ResponseBody
-//  public Iterable<DieCast> listAllItems() {
-//    return dieCastRepository.findAll();
-//  }
+  @GetMapping("diecast/list")
+  @ResponseBody
+  public Iterable<DieCast> listAllItems() {
+    return dieCastRepository.findAll();
+  }
 
   @GetMapping("diecast/list/{user_id}")
   @ResponseBody

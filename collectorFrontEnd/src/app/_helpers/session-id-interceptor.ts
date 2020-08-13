@@ -16,15 +16,26 @@
 //     req: HttpRequest<any>,
 //     next: HttpHandler
 //   ): Observable<HttpEvent<any>> {
-//     let sessionid = req.headers.get("Set-Cookie");
-//     let reqWithSessionId = req.clone({
-//       headers: req.headers.set(
-//         "Set-Cookie",
-//         "JSESSIONID=" + this.auth.getJSessionId("Set-Cookie")
-//       ),
-//     });
-//     console.log(sessionid);
-//     console.log(reqWithSessionId);
-//     return next.handle(reqWithSessionId);
+//     console.log(req.url);
+//     let exclude = /login/;
+//     if (req.url.search(exclude) === -1) {
+//       req = req.clone({
+//         withCredentials: true,
+//       });
+//     }
+//     // req = req.clone({
+//     //   withCredentials: true,
+//     // });
+//     return next.handle(req);
+//     // let sessionid = req.headers.get("Set-Cookie");
+//     // let reqWithSessionId = req.clone({
+//     //   headers: req.headers.set(
+//     //     "Set-Cookie",
+//     //     "JSESSIONID=" + this.auth.getJSessionId("Set-Cookie")
+//     //   ),
+//     // });
+//     // console.log(sessionid);
+//     // console.log(reqWithSessionId);
+//     // return next.handle(reqWithSessionId);
 //   }
 // }

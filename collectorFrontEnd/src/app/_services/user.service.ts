@@ -52,12 +52,6 @@ export class UserService {
     );
   }
 
-  // getJSessionId() {
-  //   var jsId = document.cookie;
-
-  //   return jsId;
-  // }
-
   createUser(user: User): Observable<User> {
     return this.http.post<User>(
       this.userUrl,

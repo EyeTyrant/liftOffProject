@@ -18,6 +18,7 @@ import { AppRoutingModule, routedComponents } from "./app-routing.module";
 import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
 // import { SessionIdInterceptor } from "./_helpers/session-id-interceptor";
+// import { UserService } from "./_services/user.service";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { LoginFormComponent } from "./login-form/login-form.component";
   ],
   providers: [
     CollectorService,
+    // UserService,
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: SessionIdInterceptor,
