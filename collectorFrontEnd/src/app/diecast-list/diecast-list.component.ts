@@ -51,8 +51,8 @@ export class DieCastListComponent implements OnInit {
   private getCollection() {
     console.log(this.user_id);
     this.collectorService
-      .getAllFromServer()
-      // .getAllByUserFromServer(Number(this.user_id))
+      // .getAllFromServer()
+      .getAllByUserFromServer(Number(this.user_id))
       .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
     this.dataSource.sort = this.sort;
   }
