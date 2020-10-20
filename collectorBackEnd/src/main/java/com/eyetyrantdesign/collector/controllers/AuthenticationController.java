@@ -137,8 +137,9 @@ public class AuthenticationController {
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
   }
 
-  @GetMapping("logout")
+  @GetMapping(value = "logout")
   public String logout(HttpServletRequest request) {
+    System.out.println("Log Out Clicked");
     request.getSession().invalidate();
     return "redirect:/";
   }

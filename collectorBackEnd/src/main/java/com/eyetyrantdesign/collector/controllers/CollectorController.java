@@ -4,9 +4,12 @@ import com.eyetyrantdesign.collector.models.DieCast;
 import com.eyetyrantdesign.collector.models.User;
 import com.eyetyrantdesign.collector.models.data.DieCastRepository;
 import com.eyetyrantdesign.collector.models.data.UserRepository;
+import com.mysql.cj.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -54,7 +57,11 @@ public class CollectorController {
 //  }
 
   @PostMapping("diecast/list")
-  public DieCast addItem(@RequestBody DieCast newDieCast){
+  public DieCast addItem(@RequestBody DieCast newDieCast, HttpServletRequest request){
+    HttpSession session = request.getSession();
+    DieCast diecast = newDieCast;
+    User user = authenticationController.getUserFromSession(session);
+    diecast.setUser(user);
     return dieCastRepository.save(newDieCast);
   }
 
