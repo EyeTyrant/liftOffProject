@@ -59,9 +59,8 @@ public class CollectorController {
   @PostMapping("diecast/list")
   public DieCast addItem(@RequestBody DieCast newDieCast, HttpServletRequest request){
     HttpSession session = request.getSession();
-    DieCast diecast = newDieCast;
     User user = authenticationController.getUserFromSession(session);
-    diecast.setUser(user);
+    newDieCast.setUser(user);
     return dieCastRepository.save(newDieCast);
   }
 
@@ -73,9 +72,8 @@ public class CollectorController {
   @PatchMapping("diecast/list/{id}")
   public DieCast updateItem(@RequestBody DieCast editDieCast, HttpServletRequest request) {
     HttpSession session = request.getSession();
-    DieCast diecast = editDieCast;
     User user = authenticationController.getUserFromSession(session);
-    diecast.setUser(user);
+    editDieCast.setUser(user);
     return dieCastRepository.save(editDieCast);
   }
 }
