@@ -6,6 +6,7 @@ import { CollectorService } from "../_services/collector.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { DieCast } from "../_models/collection";
+import { UserService } from "../_services/user.service";
 
 @Component({
   selector: "app-diecast-input-form",
@@ -15,9 +16,12 @@ import { DieCast } from "../_models/collection";
 export class DieCastInputFormComponent implements OnInit {
   inputForm: FormGroup;
 
+  user_id = this.userService.returnedData;
+
   constructor(
     private frmBldr: FormBuilder,
     private collectorService: CollectorService,
+    private userService: UserService,
     // public dialog: MatDialog,
     public dialogRef: MatDialogRef<DieCastInputFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data
@@ -55,6 +59,7 @@ export class DieCastInputFormComponent implements OnInit {
         .addItem(this.inputForm.value)
         .subscribe((response) => {
           console.log("Success", response);
+          console.log(this.user_id);
         });
       this.inputForm.reset();
       this.onClose();

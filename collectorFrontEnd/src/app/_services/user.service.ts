@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { User } from "../_models/user";
 import { Observable, BehaviorSubject, Subject } from "rxjs";
 import { LoginFormComponent } from "../login-form/login-form.component";
+import { request } from 'http';
 
 // const httpOptions = {
 //   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -30,6 +31,7 @@ export class UserService {
   // private showMenu = true;
   private userUrl = "http://localhost:8080/reg";
   private loginUrl = "http://localhost:8080/login";
+  private logoutUrl = "http://localhost:8080/logout";
 
   getAllUsers() {
     return this.http.get<User[]>(this.userUrl);
@@ -42,30 +44,40 @@ export class UserService {
   getUserByUserName(userName: String): Observable<User> {
     return this.http.get<User>(`${this.userUrl}/${userName}`);
   }
-
-  submitLoginInput(user: User): Observable<User> {
-    let responseMessage = { responseType: "text" as "json" };
-    return this.http.post<User>(
-      this.loginUrl,
-      user,
-      responseMessage
-      //    {
-      //   responseType: "text" as "json",
-      // }
-    );
-  }
-
-  // getJSessionId() {
-  //   var jsId = document.cookie;
-
-  //   return jsId;
-  // }
-
+  
   createUser(user: User): Observable<User> {
     return this.http.post<User>(
       this.userUrl,
       user,
       { responseType: "text" as "json" } // NOT NEEDED WHEN POSTMAPPING RETURNS "" (EMPTY STRING)
-    );
-  }
+      );
+    }
+    
+    submitLoginInput(user: User): Observable<User> {
+      let responseMessage = { responseType: "text" as "json" };
+      return this.http.post<User>(
+        this.loginUrl,
+        user,
+        responseMessage
+        //    {
+        //   responseType: "text" as "json",
+        // }
+      );
+    }
+  
+    // getJSessionId() {
+    //   var jsId = document.cookie;
+  
+    //   return jsId;
+    // }
+
+    logoutUser() {
+      console.log("Log Out Clicked");
+      return this.http.get<User>(
+        this.logoutUrl,
+      
+      );
+    }
+
+
 }

@@ -8,7 +8,7 @@
           <a class="nav-link active px-3 text-dark text h5" href="#">About</a>
           <a *ngIf="!menuVisible" class="nav-link px-3 text-dark text h5" (click)="openLogin()">Log In</a>
           <a *ngIf="!menuVisible" class="nav-link px-3 text-dark text h5" (click)="openReg()">Register</a>
-          <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" (click)="logout()">Log Out</a>
+          <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" (click)="userService.logoutUser()">Log Out</a>
 
           <!-- TODO: MAKE THIS INTO A MENU OF USER'S COLLECTION LISTS -->
           <a *ngIf="menuVisible" class="nav-link px-3 text-dark text h5" id="dieCastLink" routerLink="/diecast-list">Your Collections</a>

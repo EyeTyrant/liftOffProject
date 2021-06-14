@@ -21,6 +21,9 @@ export class SessionIdInterceptor implements HttpInterceptor {
       withCredentials: true,
     });
     return next.handle(req);
+
+
+    
     // let sessionid = req.headers.get("Set-Cookie");
     // let reqWithSessionId = req.clone({
     //   headers: req.headers.set(

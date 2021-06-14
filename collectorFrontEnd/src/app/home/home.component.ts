@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
       (menuVisible) => (this.menuVisible = menuVisible)
     );
   }
-
+  // OPENS REGISTRATION DIALOG FORM
   openReg() {
     // dialogConfig.disableClose = false;
     // dialogConfig.autoFocus = true;
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
       backdropClass: "reg-dialog-backdrop",
     });
   }
+  // OPENS LOGIN DIALOG FORM
   openLogin() {
     // dialogConfig.disableClose = false;
     // dialogConfig.autoFocus = true;
@@ -42,4 +43,8 @@ export class HomeComponent implements OnInit {
       backdropClass: "login-dialog-backdrop",
     });
   }
+
+  // logout() {
+  //   this.userService.logoutUser();
+  // }
 }
