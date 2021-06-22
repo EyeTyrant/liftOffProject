@@ -32,7 +32,7 @@ export class UserService {
   private userUrl = "http://localhost:8080/reg";
   private loginUrl = "http://localhost:8080/login";
   private logoutUrl = "http://localhost:8080/logout";
-
+  
   getAllUsers() {
     return this.http.get<User[]>(this.userUrl);
   }
@@ -73,10 +73,14 @@ export class UserService {
 
     logoutUser() {
       console.log("Log Out Clicked");
+      // console.log();
+      window.location.replace('/')
       return this.http.get<User>(
         this.logoutUrl,
+        
       
       );
+      
     }
 
 

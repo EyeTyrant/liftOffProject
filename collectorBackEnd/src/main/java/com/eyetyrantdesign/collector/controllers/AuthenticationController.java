@@ -138,9 +138,10 @@ public class AuthenticationController {
   }
 
   @GetMapping(value = "logout")
-  public String logout(HttpServletRequest request) {
-    System.out.println("Log Out Clicked");
+  public void logout(HttpServletRequest request) {
+//    System.out.println("Log Out Clicked");
+//    System.out.println(request.getSession());
     request.getSession().invalidate();
-    return "redirect:/";
+//    return "redirect:/";
   }
 }
