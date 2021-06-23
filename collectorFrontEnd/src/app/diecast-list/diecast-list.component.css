@@ -57,12 +57,15 @@ mat-cell {
 }
 
 .mat-btn-icon,
+.mat-btn-icon a,
 .mat-btn-edit {
   color: var(--hot-orange);
 }
 
 .mat-btn-icon:hover,
+.mat-btn-icon a:hover,
 .mat-btn-edit:hover {
+  text-decoration: none;
   color: var(--hot-blue) !important;
 }
 

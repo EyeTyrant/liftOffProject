@@ -74,7 +74,7 @@ export class UserService {
     logoutUser() {
       console.log("Log Out Clicked");
       // console.log();
-      window.location.replace('/')
+      window.location.replace('/');
       return this.http.get<User>(
         this.logoutUrl,
         
