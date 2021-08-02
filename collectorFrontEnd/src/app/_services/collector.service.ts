@@ -13,7 +13,9 @@ import { FormBuilder } from "@angular/forms";
 })
 export class CollectorService {
   private indexUrl = "http://localhost:8080/diecast/index";
+  // private indexUrl = "https://collector-1-3.herokuapp.com/diecast/index";
   private collectorListUrl = "http://localhost:8080/diecast/list";
+  // private collectorListUrl = "https://collector-1-3.herokuapp.com/diecast/list";
   private dieCastUrl = `${this.collectorListUrl}`;
   
   
@@ -34,7 +36,7 @@ export class CollectorService {
     return this.http.get<DieCast[]>(this.dieCastUrl);
   }
 
-  getAllByUserFromServer(userId): Observable<DieCast[]> {
+  getAllByUserFromServer(userId: number): Observable<DieCast[]> {
     return this.http.get<DieCast[]>(`${this.dieCastUrl}/${userId}`);
   }
 

@@ -30,8 +30,11 @@ export class UserService {
 
   // private showMenu = true;
   private userUrl = "http://localhost:8080/reg";
+  // private userUrl = "https://collector-1-3.herokuapp.com/reg";
   private loginUrl = "http://localhost:8080/login";
+  // private loginUrl = "https://collector-1-3.herokuapp.com/login";
   private logoutUrl = "http://localhost:8080/logout";
+  // private logoutUrl = "https://collector-1-3.herokuapp.com/logout";
   
   getAllUsers() {
     return this.http.get<User[]>(this.userUrl);
