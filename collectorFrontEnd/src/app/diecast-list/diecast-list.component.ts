@@ -19,13 +19,14 @@ import { UserService } from "../_services/user.service";
 export class DieCastListComponent implements OnInit {
   dataSource: MatTableDataSource<DieCast> = new MatTableDataSource<DieCast>();
   displayedColumns: string[] = [];
-  userService: any;
-
+  // userService: any;
+  user_id = this.userService.returnedData;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(
     private collectorService: CollectorService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private userService: UserService
   ) {
     this.displayedColumns = [
       "id",
@@ -48,8 +49,10 @@ export class DieCastListComponent implements OnInit {
 
   // TODO: change this to use getAllByUserFromServer() instead of getAllFromServer() (by passing in userId or userName?)
   private getCollection() {
+    console.log(this.user_id);
     this.collectorService
-      .getAllFromServer()
+      // .getAllFromServer()
+      .getAllByUserFromServer(Number(this.user_id))
       .subscribe((dieCast: DieCast[]) => (this.dataSource.data = dieCast));
     this.dataSource.sort = this.sort;
   }

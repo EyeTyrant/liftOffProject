@@ -17,7 +17,7 @@ import { HomeComponent } from "./home/home.component";
 import { AppRoutingModule, routedComponents } from "./app-routing.module";
 import { RegistrationFormComponent } from "./registration-form/registration-form.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
-// import { SessionIdInterceptor } from "./_helpers/session-id-interceptor";
+import { SessionIdInterceptor } from "./_helpers/session-id-interceptor";
 
 @NgModule({
   declarations: [
@@ -43,11 +43,11 @@ import { LoginFormComponent } from "./login-form/login-form.component";
   ],
   providers: [
     CollectorService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: SessionIdInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SessionIdInterceptor,
+      multi: true,
+    },
   ],
   entryComponents: [
     DieCastInputFormComponent,

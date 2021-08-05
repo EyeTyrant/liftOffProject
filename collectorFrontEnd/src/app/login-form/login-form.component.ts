@@ -52,7 +52,9 @@ export class LoginFormComponent implements OnInit {
         } else {
           this.showMenuTrue();
           console.log(data);
-          alert(data);
+          // SENDS RETURNED DATA TO returnedId VARIABLE IN USERSERVICE TO BE SHARED
+          this.userService.returnedData = data;
+          // alert(data);
         }
       }
       // (response) => {

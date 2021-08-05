@@ -60,7 +60,11 @@ public class DieCast extends AbstractEntity{
     this.mfr = mfr;
   }
 
-//  public Integer getId() {
+  public void setUser(User user) {
+    this.user = user;
+  }
+
+  //  public Integer getId() {
 //    return id;
 //  }
 

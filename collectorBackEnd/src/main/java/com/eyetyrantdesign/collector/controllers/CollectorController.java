@@ -4,15 +4,21 @@ import com.eyetyrantdesign.collector.models.DieCast;
 import com.eyetyrantdesign.collector.models.User;
 import com.eyetyrantdesign.collector.models.data.DieCastRepository;
 import com.eyetyrantdesign.collector.models.data.UserRepository;
+import com.mysql.cj.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class CollectorController {
+
+  @Autowired
+  private AuthenticationController authenticationController;
 
   @Autowired
   private DieCastRepository dieCastRepository;
@@ -37,9 +43,9 @@ public class CollectorController {
   @ResponseBody
   public Iterable<DieCast> listAllUserItems(@PathVariable Integer user_id){
     Optional<User> aUser = userRepository.findById(user_id);
-    if(aUser.isPresent()){
-      System.out.println(aUser.get());
-    }
+//    if(aUser.isPresent()){
+//      System.out.println(aUser.get().getId());
+//    }
       return dieCastRepository.findAllById(user_id);
   }
 
@@ -51,7 +57,10 @@ public class CollectorController {
 //  }
 
   @PostMapping("diecast/list")
-  public DieCast addItem(@RequestBody DieCast newDieCast){
+  public DieCast addItem(@RequestBody DieCast newDieCast, HttpServletRequest request){
+    HttpSession session = request.getSession();
+    User user = authenticationController.getUserFromSession(session);
+    newDieCast.setUser(user);
     return dieCastRepository.save(newDieCast);
   }
 
@@ -61,7 +70,10 @@ public class CollectorController {
   }
 
   @PatchMapping("diecast/list/{id}")
-  public DieCast updateItem(@RequestBody DieCast editDieCast) {
+  public DieCast updateItem(@RequestBody DieCast editDieCast, HttpServletRequest request) {
+    HttpSession session = request.getSession();
+    User user = authenticationController.getUserFromSession(session);
+    editDieCast.setUser(user);
     return dieCastRepository.save(editDieCast);
   }
 }

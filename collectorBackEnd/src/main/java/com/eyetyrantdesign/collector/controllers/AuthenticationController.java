@@ -15,7 +15,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
 public class AuthenticationController {
 
   @Autowired
@@ -37,13 +37,12 @@ public class AuthenticationController {
 
     return user.get();
   }
+
    private static void setUserInSession(HttpSession session, User user) {
     session.setAttribute(userSessionKey, user.getId());
-   }
+  }
 
-
-
-//   @PostMapping("/reg")
+//  @PostMapping("/reg")
 //  public User addUser(@RequestBody User newUser) {
 //    return userRepository.save(newUser);
 //   }
@@ -97,7 +96,7 @@ public class AuthenticationController {
   }
 
   @PostMapping(value = "login", produces = MediaType.APPLICATION_JSON_VALUE)
-  public String processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
+  public Object processLoginForm(@RequestBody @Valid LoginFormDTO loginFormDTO,
                                  Errors errors,
                                  HttpServletRequest request
                                  ) {
@@ -121,21 +120,28 @@ public class AuthenticationController {
     }
 
     setUserInSession(request.getSession(), theUser);
+    System.out.println(theUser.getId());
 
+    return theUser.getId();
 
 //    String first = theUser.getFirstName();
 //    String last = theUser.getLastName();
-//    return first + " " + last;
-      String username = String.valueOf(theUser);
-    return "Welcome "+ username + " you are now logged in.";
-//    return ""; // can I redirect to users list page here?
+//  return first + " " + last;
+//      String username = String.valueOf(theUser);
+//  return String.valueOf(theUser.getId());
+//    return "Welcome "+ username + " you are now logged in.";
+
+
+    //    return ""; // can I redirect to users list page here?
                 // PUTTING ANY VALUE HERE WILL CAUSE UNEXPECTED TOKEN IN JSON ERRORS
                 // AS RETURNING TEXT NOT JSON IN RESPONSE
   }
 
-  @GetMapping("logout")
-  public String logout(HttpServletRequest request) {
+  @GetMapping(value = "logout")
+  public void logout(HttpServletRequest request) {
+//    System.out.println("Log Out Clicked");
+//    System.out.println(request.getSession());
     request.getSession().invalidate();
-    return "";
+//    return "redirect:/";
   }
 }
