@@ -11,7 +11,7 @@ Additional features presently considered include additional collection types (e.
 
 I hope to deploy this project to the web as soon as the MVP is ready and before implementing additional features.
 
-Collection Catalog utilizes an Angular front-end for user interaction and client side validation. Bootstrap is employed to manage CSS. Some custom CSS is expected. Java Spring Boot will implement Hibernate to communicate with a MySQL database. VSCode, IntilliJ, and MySQL Workbench are being used to create this project. For this project I am also using Git for version control and Trello for progress tracking.
+Collector Catalog utilizes an Angular front-end for user interaction and client side validation. Bootstrap is employed to manage CSS. Some custom CSS is expected. Java Spring Boot will implement Hibernate to communicate with a MySQL database. VSCode, IntilliJ, and MySQL Workbench are being used to create this project. For this project I am also using Git for version control and Trello for progress tracking.
 
 The app can be accessed at https://eyetyrant.github.io/collectorui/ with your Firefox browser,
 (not yet compatible with Safari, Chrome, or Edge).
