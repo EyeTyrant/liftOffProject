@@ -31,6 +31,7 @@ With docker installed, type the following commands in your cli to interact with 
 
 To pull images from the github repositories instead of Dockerhub, add the prefix ghcr.io/
 
+---
 An initial wireframe example of a single page version created with Adobe Illustrator is displayed below and other examples considered can be found [here](https://github.com/EyeTyrant/liftOffProject/tree/master/wireframes).
 
 ![Single page with sidebar](https://github.com/EyeTyrant/liftOffProject/blob/master/wireframes/collectorSingleSideBar.png)
